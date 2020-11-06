@@ -1,0 +1,43 @@
+<Workspace Version="0.9.0.3067" X="0" Y="0" zoom="1" Name="Point.XYZByCoordinates" Description="Get the X,Y, and Z components and create a point from those coordinates." ID="6ba4425d-663c-4805-a20e-d857409b53a4" Category="Landform.Geometry.Point">
+  <NamespaceResolutionMap>
+    <ClassMap partialName="List" resolvedName="DSCore.List" assemblyName="DSCoreNodes.dll" />
+    <ClassMap partialName="Vector" resolvedName="Autodesk.DesignScript.Geometry.Vector" assemblyName="ProtoGeometry.dll" />
+  </NamespaceResolutionMap>
+  <Elements>
+    <Dynamo.Nodes.DSFunction guid="652fc88c-e99b-4e7e-b585-c70a55b6e002" type="Dynamo.Nodes.DSFunction" nickname="Point.Z" x="255.449230892955" y="213.882312548522" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Point.Z" />
+    <Dynamo.Nodes.DSFunction guid="7a660912-343a-4bd3-8064-ec7aed2faac1" type="Dynamo.Nodes.DSFunction" nickname="Point.ByCoordinates" x="474.780774334434" y="91.2746174570126" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Point.ByCoordinates@double,double,double">
+      <PortInfo index="0" default="True" />
+      <PortInfo index="1" default="True" />
+      <PortInfo index="2" default="True" />
+    </Dynamo.Nodes.DSFunction>
+    <Dynamo.Nodes.DSFunction guid="ce0e1f2c-506e-400d-a276-59f970041704" type="Dynamo.Nodes.DSFunction" nickname="Point.Y" x="255.449230892956" y="106.260002412642" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Point.Y" />
+    <Dynamo.Nodes.DSFunction guid="bff4df81-7ef9-410f-a8f9-a21c60c57a21" type="Dynamo.Nodes.DSFunction" nickname="Point.X" x="250" y="0" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Point.X" />
+    <Dynamo.Nodes.Output guid="a04dff43-77c8-4325-9b99-e112109973a1" type="Dynamo.Nodes.Output" nickname="Output" x="688.180774334434" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
+      <Symbol value="Point" />
+    </Dynamo.Nodes.Output>
+    <Dynamo.Nodes.Symbol guid="eaff9108-53df-49be-be8e-ca68ed9defd6" type="Dynamo.Nodes.Symbol" nickname="Input" x="128.4" y="17.1999999999999" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <Symbol value="pointX" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.Symbol guid="2ab4cb9b-149f-4bc8-993b-a50de3e02c65" type="Dynamo.Nodes.Symbol" nickname="Input" x="109.2" y="111.6" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <Symbol value="pointY" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.Symbol guid="37f9184d-c444-4aff-ab83-56091c430195" type="Dynamo.Nodes.Symbol" nickname="Input" x="128.4" y="239.6" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <Symbol value="pointZ" />
+    </Dynamo.Nodes.Symbol>
+  </Elements>
+  <Connectors>
+    <Dynamo.Models.ConnectorModel start="652fc88c-e99b-4e7e-b585-c70a55b6e002" start_index="0" end="7a660912-343a-4bd3-8064-ec7aed2faac1" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="7a660912-343a-4bd3-8064-ec7aed2faac1" start_index="0" end="a04dff43-77c8-4325-9b99-e112109973a1" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="ce0e1f2c-506e-400d-a276-59f970041704" start_index="0" end="7a660912-343a-4bd3-8064-ec7aed2faac1" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="bff4df81-7ef9-410f-a8f9-a21c60c57a21" start_index="0" end="7a660912-343a-4bd3-8064-ec7aed2faac1" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="eaff9108-53df-49be-be8e-ca68ed9defd6" start_index="0" end="bff4df81-7ef9-410f-a8f9-a21c60c57a21" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="2ab4cb9b-149f-4bc8-993b-a50de3e02c65" start_index="0" end="ce0e1f2c-506e-400d-a276-59f970041704" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="37f9184d-c444-4aff-ab83-56091c430195" start_index="0" end="652fc88c-e99b-4e7e-b585-c70a55b6e002" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="4309.37158203125" eyeY="2161.29272460938" eyeZ="-4435.4169921875" lookX="-2074.99877929688" lookY="-1784.73120117188" lookZ="2500.29174804688" upX="-0.180310323834419" upY="0.959313929080963" upZ="0.217266842722893" />
+  </Cameras>
+</Workspace>

@@ -1,0 +1,24 @@
+<Workspace Version="0.9.0.3067" X="124.206694795008" Y="180.957983022151" zoom="1.07925372895183" Name="List.RemoveEmpty" Description="Removes empty indices from a list." ID="88e9b4e9-92af-44c1-84ce-ce136e3caccc" Category="Landform.Core.List">
+  <NamespaceResolutionMap />
+  <Elements>
+    <Dynamo.Nodes.DSFunction guid="0d0054a1-add5-483e-ac9d-3b724b476d89" type="Dynamo.Nodes.DSFunction" nickname="List.IsEmpty" x="250" y="165.130387820166" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.List.IsEmpty@var[]..[]" />
+    <DSCore.Map guid="11b94952-2223-4594-9289-1657e2c3a41e" type="DSCore.Map" nickname="List.Map" x="391.941530149729" y="96.0063848244974" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" />
+    <Dynamo.Nodes.DSFunction guid="f1177a00-0b5f-465a-a55e-656efc8f29b8" type="Dynamo.Nodes.DSFunction" nickname="List.FilterByBoolMask" x="579.839740449103" y="0" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.List.FilterByBoolMask@var[]..[],var[]..[]" />
+    <Dynamo.Nodes.Symbol guid="e1d5cdf5-3fcd-4e73-9693-86598ee8318a" type="Dynamo.Nodes.Symbol" nickname="Input" x="0" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <Symbol value="list" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.Output guid="1a946c3d-8b88-4f39-ad29-1faa50d70dfd" type="Dynamo.Nodes.Output" nickname="Output" x="799.639740449103" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
+      <Symbol value="list" />
+    </Dynamo.Nodes.Output>
+  </Elements>
+  <Connectors>
+    <Dynamo.Models.ConnectorModel start="0d0054a1-add5-483e-ac9d-3b724b476d89" start_index="0" end="11b94952-2223-4594-9289-1657e2c3a41e" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="11b94952-2223-4594-9289-1657e2c3a41e" start_index="0" end="f1177a00-0b5f-465a-a55e-656efc8f29b8" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="f1177a00-0b5f-465a-a55e-656efc8f29b8" start_index="1" end="1a946c3d-8b88-4f39-ad29-1faa50d70dfd" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="e1d5cdf5-3fcd-4e73-9693-86598ee8318a" start_index="0" end="11b94952-2223-4594-9289-1657e2c3a41e" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="e1d5cdf5-3fcd-4e73-9693-86598ee8318a" start_index="0" end="f1177a00-0b5f-465a-a55e-656efc8f29b8" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+</Workspace>

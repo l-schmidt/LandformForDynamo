@@ -1,0 +1,46 @@
+<Workspace Version="0.9.0.3067" X="259.600104381752" Y="256.101287340577" zoom="0.65183290407521" Name="FamilyInstance.RandomRotation" Description="Rotates the angle of the family instance a random amount (between 0 and 360)." ID="9ea7f35f-375c-4fdb-8bc4-603368133d70" Category="Landform.Revit.Elements.FamilyInstance">
+  <NamespaceResolutionMap>
+    <ClassMap partialName="Math" resolvedName="DSCore.Math" assemblyName="DSCoreNodes.dll" />
+    <ClassMap partialName="FamilyInstance" resolvedName="Revit.Elements.FamilyInstance" assemblyName="RevitNodes.dll" />
+  </NamespaceResolutionMap>
+  <Elements>
+    <Dynamo.Nodes.Symbol guid="60ddb371-ca4d-49e1-af04-d06dd2357d67" type="Dynamo.Nodes.Symbol" nickname="Input" x="-311.872203987336" y="-58.2455465154288" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <Symbol value="familyInstance" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.Output guid="80860b66-2bb5-423e-96a4-ec5a693de846" type="Dynamo.Nodes.Output" nickname="Output" x="901.980096554981" y="-57.1329884972387" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
+      <Symbol value="FamilyInstance" />
+    </Dynamo.Nodes.Output>
+    <Dynamo.Nodes.CodeBlockNodeModel guid="8a8fdc71-46a0-485c-912b-f5241e1126c1" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="158.132725980088" y="81.2648828776191" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="360;" ShouldFocus="false" />
+    <Dynamo.Nodes.DSFunction guid="8d916983-5851-49be-bc64-7c3690a56370" type="Dynamo.Nodes.DSFunction" nickname="Count" x="85.3697814288563" y="135.949849813573" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="BuiltIn" function="Count@var[]..[]" />
+    <Dynamo.Nodes.DSFunction guid="226b2e4d-c50d-419d-9def-6f49d7745cdb" type="Dynamo.Nodes.DSFunction" nickname="FamilyInstance.SetRotation" x="590.22608900109" y="-59.8816761774432" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="RevitNodes.dll" function="Revit.Elements.FamilyInstance.SetRotation@double" />
+    <Dynamo.Nodes.Function guid="4b22e5ae-4ac4-412c-9bcf-d23c224933ea" type="Dynamo.Nodes.Function" nickname="Math.RandomIntegerMin" x="336.029044896851" y="18.2675257909749" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
+      <ID value="8917e376-e5a9-4f35-9fbf-0b32e55c8397" />
+      <Name value="Math.RandomIntegerMin" />
+      <Description value="Creates a list of random integers between a given minimum and maximum value" />
+      <Inputs>
+        <Input value="min" />
+        <Input value="max" />
+        <Input value="amount" />
+      </Inputs>
+      <Outputs>
+        <Output value="list" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <Dynamo.Nodes.CodeBlockNodeModel guid="51daa526-63d1-477b-8750-69c216988724" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="168.235055549896" y="13.4023981585237" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="0;" ShouldFocus="false" />
+  </Elements>
+  <Connectors>
+    <Dynamo.Models.ConnectorModel start="60ddb371-ca4d-49e1-af04-d06dd2357d67" start_index="0" end="8d916983-5851-49be-bc64-7c3690a56370" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="60ddb371-ca4d-49e1-af04-d06dd2357d67" start_index="0" end="226b2e4d-c50d-419d-9def-6f49d7745cdb" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="8a8fdc71-46a0-485c-912b-f5241e1126c1" start_index="0" end="4b22e5ae-4ac4-412c-9bcf-d23c224933ea" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="8d916983-5851-49be-bc64-7c3690a56370" start_index="0" end="4b22e5ae-4ac4-412c-9bcf-d23c224933ea" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="226b2e4d-c50d-419d-9def-6f49d7745cdb" start_index="0" end="80860b66-2bb5-423e-96a4-ec5a693de846" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="4b22e5ae-4ac4-412c-9bcf-d23c224933ea" start_index="0" end="226b2e4d-c50d-419d-9def-6f49d7745cdb" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="51daa526-63d1-477b-8750-69c216988724" start_index="0" end="4b22e5ae-4ac4-412c-9bcf-d23c224933ea" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-17" eyeY="24" eyeZ="50" lookX="12" lookY="-13" lookZ="-58" upX="0" upY="1" upZ="0" />
+  </Cameras>
+</Workspace>

@@ -1,0 +1,31 @@
+<Workspace Version="1.1.0.2094" X="103.540990354214" Y="181.806257560013" zoom="0.679007436100057" Name="Curve.DivideEqually" Description="Divides a curve into a given number of equal length curves." ID="f643ec5d-fd69-4510-b363-891fb0451287" Category="Landform.Geometry.Curve">
+  <NamespaceResolutionMap />
+  <Elements>
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="8ad3940e-bc85-4472-a1e7-af4c518682cf" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Curve.PointsAtEqualSegmentLength" x="250" y="98.6082981789737" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Curve.PointsAtEqualSegmentLength@int">
+      <PortInfo index="1" default="True" />
+    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="3573be52-7bc1-40cd-a214-228031c84b97" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Curve.SplitByPoints" x="553.960928136851" y="0" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Curve.SplitByPoints@Autodesk.DesignScript.Geometry.Point[]" />
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="6949f82f-3242-4989-9718-bd436d617560" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="0" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <Symbol value="curve" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="c653b5a3-1c1f-42a3-aa68-c5d04b14dffd" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="0" y="150" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <Symbol value="divisions : int" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Output guid="d7328048-33c0-4bb6-b700-d4a132e2a551" type="Dynamo.Graph.Nodes.CustomNodes.Output" nickname="Output" x="769.760928136851" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <Symbol value="Curve[]" />
+    </Dynamo.Graph.Nodes.CustomNodes.Output>
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="8ad3940e-bc85-4472-a1e7-af4c518682cf" start_index="0" end="3573be52-7bc1-40cd-a214-228031c84b97" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="3573be52-7bc1-40cd-a214-228031c84b97" start_index="0" end="d7328048-33c0-4bb6-b700-d4a132e2a551" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="6949f82f-3242-4989-9718-bd436d617560" start_index="0" end="8ad3940e-bc85-4472-a1e7-af4c518682cf" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="6949f82f-3242-4989-9718-bd436d617560" start_index="0" end="3573be52-7bc1-40cd-a214-228031c84b97" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="c653b5a3-1c1f-42a3-aa68-c5d04b14dffd" start_index="0" end="8ad3940e-bc85-4472-a1e7-af4c518682cf" end_index="1" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-451.35895161891" eyeY="545.872445470806" eyeZ="409.850688617741" lookX="446.35895161891" lookY="-534.872445470806" lookZ="-417.850688617741" upX="0.35169727830944" upY="0.876306680043862" upZ="-0.329234911484542" />
+  </Cameras>
+</Workspace>

@@ -1,0 +1,33 @@
+<Workspace Version="0.9.0.3067" X="115.844" Y="86.564" zoom="0.8425" Name="Point.YRange" Description="Get all Y components and the minimum and maximum Y components from a list of Points." ID="a9c2f720-b63c-4361-8698-1c5e3ba79a3f" Category="Landform.Geometry.Point">
+  <NamespaceResolutionMap>
+    <ClassMap partialName="Point" resolvedName="Autodesk.DesignScript.Geometry.Point" assemblyName="ProtoGeometry.dll" />
+  </NamespaceResolutionMap>
+  <Elements>
+    <Dynamo.Nodes.DSFunction guid="e7500b57-d374-47ec-a208-32a4f48901d4" type="Dynamo.Nodes.DSFunction" nickname="List.MinimumItem" x="480.408852141923" y="63.2760874779981" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.List.MinimumItem@var[]" />
+    <Dynamo.Nodes.DSFunction guid="3e327d0d-221d-4be6-9984-167bdf48f792" type="Dynamo.Nodes.DSFunction" nickname="List.MaximumItem" x="475.280620879747" y="163.323442136499" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.List.MaximumItem@var[]" />
+    <Dynamo.Nodes.Symbol guid="adfe8626-4c14-4433-ac8f-4f956aab7a7d" type="Dynamo.Nodes.Symbol" nickname="Input" x="0" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <Symbol value="points" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.Output guid="4bab7f49-fd19-4f24-9d32-fb56732a2691" type="Dynamo.Nodes.Output" nickname="Output" x="666.518694362018" y="-24.9768545994069" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
+      <Symbol value="double" />
+    </Dynamo.Nodes.Output>
+    <Dynamo.Nodes.Output guid="48125904-a253-4152-8e9f-de527f12d16c" type="Dynamo.Nodes.Output" nickname="Output" x="675.021958456973" y="61.7044510385752" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
+      <Symbol value="min" />
+    </Dynamo.Nodes.Output>
+    <Dynamo.Nodes.DSFunction guid="5064d024-1bcf-4775-bd45-43c88dac2dcb" type="Dynamo.Nodes.DSFunction" nickname="Point.Y" x="186.00118694362" y="37.9655786350147" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Point.Y" />
+    <Dynamo.Nodes.Output guid="82306168-db2c-4689-b4e4-91819bad1da3" type="Dynamo.Nodes.Output" nickname="Output" x="679.769732937686" y="172.80237388724" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
+      <Symbol value="max" />
+    </Dynamo.Nodes.Output>
+  </Elements>
+  <Connectors>
+    <Dynamo.Models.ConnectorModel start="e7500b57-d374-47ec-a208-32a4f48901d4" start_index="0" end="48125904-a253-4152-8e9f-de527f12d16c" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="3e327d0d-221d-4be6-9984-167bdf48f792" start_index="0" end="82306168-db2c-4689-b4e4-91819bad1da3" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="adfe8626-4c14-4433-ac8f-4f956aab7a7d" start_index="0" end="5064d024-1bcf-4775-bd45-43c88dac2dcb" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="5064d024-1bcf-4775-bd45-43c88dac2dcb" start_index="0" end="e7500b57-d374-47ec-a208-32a4f48901d4" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="5064d024-1bcf-4775-bd45-43c88dac2dcb" start_index="0" end="3e327d0d-221d-4be6-9984-167bdf48f792" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="5064d024-1bcf-4775-bd45-43c88dac2dcb" start_index="0" end="4bab7f49-fd19-4f24-9d32-fb56732a2691" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+</Workspace>

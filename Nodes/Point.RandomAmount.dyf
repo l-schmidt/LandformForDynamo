@@ -1,0 +1,72 @@
+<Workspace Version="0.9.0.3067" X="128.6661280125" Y="253.440318975" zoom="0.593767140625" Name="Point.RandomAmount" Description="Creates the specified amount of random points within a set boundary curves. Tolerance specifies the minimum distance between points." ID="006bd4b1-69bf-44a5-9773-f7e7a0869234" Category="Landform.Geometry.Point">
+  <NamespaceResolutionMap>
+    <ClassMap partialName="Vector" resolvedName="Autodesk.DesignScript.Geometry.Vector" assemblyName="ProtoGeometry.dll" />
+    <ClassMap partialName="Surface" resolvedName="Autodesk.DesignScript.Geometry.Surface" assemblyName="ProtoGeometry.dll" />
+    <ClassMap partialName="PolySurface" resolvedName="Autodesk.DesignScript.Geometry.PolySurface" assemblyName="ProtoGeometry.dll" />
+    <ClassMap partialName="FamilyInstance.ByPoint" resolvedName="Revit.Elements.FamilyInstance" assemblyName="RevitNodes.dll" />
+    <ClassMap partialName="Math" resolvedName="DSCore.Math" assemblyName="DSCoreNodes.dll" />
+    <ClassMap partialName="List" resolvedName="DSCore.List" assemblyName="DSCoreNodes.dll" />
+  </NamespaceResolutionMap>
+  <Elements>
+    <Dynamo.Nodes.Function guid="ac0b4ef1-189a-4991-8f67-88881ddd4914" type="Dynamo.Nodes.Function" nickname="Point.Random" x="271.557272412425" y="101.5885940677" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
+      <ID value="b9274aba-a676-4d34-882d-993f0ebfc0a5" />
+      <Name value="Point.Random" />
+      <Description value="Creates a random set of points within a set of boundary cuves. Tolerance specifies a minimum distance between points." />
+      <Inputs>
+        <Input value="amount" />
+        <Input value="curves" />
+        <Input value="tolerance" />
+      </Inputs>
+      <Outputs>
+        <Output value="Points" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <Dynamo.Nodes.DSFunction guid="79694b53-d3b5-48bf-8074-feb7dc70ecb3" type="Dynamo.Nodes.DSFunction" nickname="Count" x="451.409467980676" y="96.1331418822664" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="BuiltIn" function="Count@var[]..[]" />
+    <Dynamo.Nodes.CodeBlockNodeModel guid="2bb36c19-a5bf-4cdb-a935-c3b4a95871ce" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="629.660232583319" y="8.08397715465958" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" CodeText="amt/ct*amt*1.25;" ShouldFocus="false" />
+    <Dynamo.Nodes.DSFunction guid="74028d73-f02b-434e-a569-85a81232d5f7" type="Dynamo.Nodes.DSFunction" nickname="Math.Round" x="932.905950999749" y="52.8914340049216" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.Math.Round@double" />
+    <Dynamo.Nodes.Function guid="a04db124-29ff-436a-bc02-04abf2a1c852" type="Dynamo.Nodes.Function" nickname="Point.Random" x="1200.24369346883" y="136.962733460664" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
+      <ID value="b9274aba-a676-4d34-882d-993f0ebfc0a5" />
+      <Name value="Point.Random" />
+      <Description value="Creates a random set of points within a set of boundary cuves. Tolerance specifies a minimum distance between points." />
+      <Inputs>
+        <Input value="amount" />
+        <Input value="curves" />
+        <Input value="tolerance" />
+      </Inputs>
+      <Outputs>
+        <Output value="Points" />
+      </Outputs>
+    </Dynamo.Nodes.Function>
+    <Dynamo.Nodes.DSFunction guid="9fcc9d22-a8f6-442c-bb9d-bffc521aa4a6" type="Dynamo.Nodes.DSFunction" nickname="List.TakeItems" x="1460.51878259818" y="267.454861917214" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.List.TakeItems@var[]..[],int" />
+    <Dynamo.Nodes.Symbol guid="b78df595-0657-489d-8fd8-1f370510afd6" type="Dynamo.Nodes.Symbol" nickname="Input" x="0" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <Symbol value="amount : int" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.Symbol guid="cb51e35f-b5de-4ef8-aa47-f977800dc088" type="Dynamo.Nodes.Symbol" nickname="Input" x="0" y="150" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <Symbol value="curves : var[]..[]" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.Symbol guid="21663217-116c-44a6-a9b9-b9625242d088" type="Dynamo.Nodes.Symbol" nickname="Input" x="0" y="300" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <Symbol value="tolerance : double" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.Output guid="c9bfb0a6-ad46-49d0-8cbc-c3fb36c84c6f" type="Dynamo.Nodes.Output" nickname="Output" x="1706.88599789726" y="123.954316371446" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
+      <Symbol value="Points" />
+    </Dynamo.Nodes.Output>
+  </Elements>
+  <Connectors>
+    <Dynamo.Models.ConnectorModel start="ac0b4ef1-189a-4991-8f67-88881ddd4914" start_index="0" end="79694b53-d3b5-48bf-8074-feb7dc70ecb3" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="79694b53-d3b5-48bf-8074-feb7dc70ecb3" start_index="0" end="2bb36c19-a5bf-4cdb-a935-c3b4a95871ce" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="2bb36c19-a5bf-4cdb-a935-c3b4a95871ce" start_index="0" end="74028d73-f02b-434e-a569-85a81232d5f7" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="74028d73-f02b-434e-a569-85a81232d5f7" start_index="0" end="a04db124-29ff-436a-bc02-04abf2a1c852" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="a04db124-29ff-436a-bc02-04abf2a1c852" start_index="0" end="9fcc9d22-a8f6-442c-bb9d-bffc521aa4a6" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="9fcc9d22-a8f6-442c-bb9d-bffc521aa4a6" start_index="0" end="c9bfb0a6-ad46-49d0-8cbc-c3fb36c84c6f" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="b78df595-0657-489d-8fd8-1f370510afd6" start_index="0" end="ac0b4ef1-189a-4991-8f67-88881ddd4914" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="b78df595-0657-489d-8fd8-1f370510afd6" start_index="0" end="2bb36c19-a5bf-4cdb-a935-c3b4a95871ce" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="b78df595-0657-489d-8fd8-1f370510afd6" start_index="0" end="9fcc9d22-a8f6-442c-bb9d-bffc521aa4a6" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="cb51e35f-b5de-4ef8-aa47-f977800dc088" start_index="0" end="ac0b4ef1-189a-4991-8f67-88881ddd4914" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="cb51e35f-b5de-4ef8-aa47-f977800dc088" start_index="0" end="a04db124-29ff-436a-bc02-04abf2a1c852" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="21663217-116c-44a6-a9b9-b9625242d088" start_index="0" end="ac0b4ef1-189a-4991-8f67-88881ddd4914" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="21663217-116c-44a6-a9b9-b9625242d088" start_index="0" end="a04db124-29ff-436a-bc02-04abf2a1c852" end_index="2" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+</Workspace>

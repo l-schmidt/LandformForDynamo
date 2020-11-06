@@ -1,0 +1,36 @@
+<Workspace Version="0.9.2.4472" X="194" Y="116" zoom="1" Name="IndexOf.Equals" Description="Returns the indices of items in list B that are equal to items in list A." ID="56a8d5b1-ffef-4388-997d-0e8adf915608" Category="Landform.Core.List">
+  <NamespaceResolutionMap />
+  <Elements>
+    <CoreNodeModels.CreateList guid="ff753908-6de8-4d55-939e-9a0f669b078c" type="CoreNodeModels.CreateList" nickname="Create List" x="250" y="0.333333333330074" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" inputcount="2" />
+    <PythonNodeModels.PythonNode guid="fec5a7b2-2926-4e4e-ba95-0eb9066cc9d5" type="PythonNodeModels.PythonNode" nickname="Python Script" x="398.666666666666" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" inputcount="1">
+      <Script>listaA = IN[0][0]
+listaB = IN[0][1]
+indiceslist = list()
+for lA in listaA:
+	counter = 0
+	for lB in listaB:
+		if (lA == lB):
+			indiceslist.append(counter)
+		counter += 1
+OUT = indiceslist</Script>
+    </PythonNodeModels.PythonNode>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="a3ae4422-bc97-4b35-bffd-96df5d35368c" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="0" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false">
+      <Symbol value="listA" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="44777d05-f6f5-4251-876a-510db02e36a7" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="0" y="150" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false">
+      <Symbol value="listB" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Output guid="b4f1e6d3-e8a2-4aed-8daa-8551855f1280" type="Dynamo.Graph.Nodes.CustomNodes.Output" nickname="Output" x="606" y="2" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false">
+      <Symbol value="Index" />
+    </Dynamo.Graph.Nodes.CustomNodes.Output>
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="ff753908-6de8-4d55-939e-9a0f669b078c" start_index="0" end="fec5a7b2-2926-4e4e-ba95-0eb9066cc9d5" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="fec5a7b2-2926-4e4e-ba95-0eb9066cc9d5" start_index="0" end="b4f1e6d3-e8a2-4aed-8daa-8551855f1280" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="a3ae4422-bc97-4b35-bffd-96df5d35368c" start_index="0" end="ff753908-6de8-4d55-939e-9a0f669b078c" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="44777d05-f6f5-4251-876a-510db02e36a7" start_index="0" end="ff753908-6de8-4d55-939e-9a0f669b078c" end_index="1" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+</Workspace>

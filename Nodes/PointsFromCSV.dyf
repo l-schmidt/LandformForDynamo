@@ -1,0 +1,35 @@
+<Workspace Version="0.9.0.3067" X="75.198" Y="141.53" zoom="0.8425" Name="PointsFromCSV" Description="Imports data points from a text file containing comma separated values." ID="f9f16a93-2766-45e5-b9ad-0d0cd8a3c570" Category="Landform.Geometry.Point">
+  <NamespaceResolutionMap>
+    <ClassMap partialName="List.GetItemAtIndex" resolvedName="DSCore.List" assemblyName="DSCoreNodes.dll" />
+    <ClassMap partialName="List" resolvedName="DSCore.List" assemblyName="DSCoreNodes.dll" />
+  </NamespaceResolutionMap>
+  <Elements>
+    <Dynamo.Nodes.CodeBlockNodeModel guid="d13b02ad-9a25-4254-b7e4-ea57a26a60bd" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="625.355273907701" y="6.08618864101271" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" CodeText="a[0];&#xA;a[1];&#xA;a[2];" ShouldFocus="false" />
+    <Dynamo.Nodes.DSFunction guid="523139e4-02a4-4db5-9bf5-828db1230aed" type="Dynamo.Nodes.DSFunction" nickname="Point.ByCoordinates" x="858.464979727109" y="0" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Point.ByCoordinates@double,double,double">
+      <PortInfo index="0" default="True" />
+      <PortInfo index="1" default="True" />
+      <PortInfo index="2" default="True" />
+    </Dynamo.Nodes.DSFunction>
+    <Dynamo.Nodes.DSFunction guid="641346e2-83f0-45b9-911a-05351ee94a36" type="Dynamo.Nodes.DSFunction" nickname="ImportFromCSV" x="282" y="13.1449590457802" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="BuiltIn" function="ImportFromCSV@string" />
+    <Dynamo.Nodes.Symbol guid="70fe1a42-e793-4d06-a616-646e2b304724" type="Dynamo.Nodes.Symbol" nickname="Input" x="0.949554896142445" y="11.3946587537092" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <Symbol value="filePath" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.Output guid="1ddc5d40-635f-4765-826a-ba4cdca48ebd" type="Dynamo.Nodes.Output" nickname="Output" x="1071.86497972711" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
+      <Symbol value="Points" />
+    </Dynamo.Nodes.Output>
+  </Elements>
+  <Connectors>
+    <Dynamo.Models.ConnectorModel start="d13b02ad-9a25-4254-b7e4-ea57a26a60bd" start_index="0" end="523139e4-02a4-4db5-9bf5-828db1230aed" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="d13b02ad-9a25-4254-b7e4-ea57a26a60bd" start_index="1" end="523139e4-02a4-4db5-9bf5-828db1230aed" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="d13b02ad-9a25-4254-b7e4-ea57a26a60bd" start_index="2" end="523139e4-02a4-4db5-9bf5-828db1230aed" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="523139e4-02a4-4db5-9bf5-828db1230aed" start_index="0" end="1ddc5d40-635f-4765-826a-ba4cdca48ebd" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="641346e2-83f0-45b9-911a-05351ee94a36" start_index="0" end="d13b02ad-9a25-4254-b7e4-ea57a26a60bd" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="70fe1a42-e793-4d06-a616-646e2b304724" start_index="0" end="641346e2-83f0-45b9-911a-05351ee94a36" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-2821.76733398438" eyeY="3575.78247070313" eyeZ="3585.7294921875" lookX="2816.76733398438" lookY="-3564.78247070313" lookZ="-3593.7294921875" upX="0.266549319028854" upY="0.901832520961761" upZ="-0.340072870254517" />
+  </Cameras>
+</Workspace>
