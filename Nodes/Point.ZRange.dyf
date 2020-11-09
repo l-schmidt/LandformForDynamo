@@ -1,0 +1,33 @@
+<Workspace Version="0.9.0.3067" X="115.844" Y="86.564" zoom="0.8425" Name="Point.ZRange" Description="Get all Z components and the minimum and maximum Z components from a list of Points." ID="8af5ac4f-a6bb-4ae7-93a0-b6df71e9ecc4" Category="Landform.Geometry.Point">
+  <NamespaceResolutionMap>
+    <ClassMap partialName="Point" resolvedName="Autodesk.DesignScript.Geometry.Point" assemblyName="ProtoGeometry.dll" />
+  </NamespaceResolutionMap>
+  <Elements>
+    <Dynamo.Nodes.DSFunction guid="e7500b57-d374-47ec-a208-32a4f48901d4" type="Dynamo.Nodes.DSFunction" nickname="List.MinimumItem" x="462.367309115217" y="-15.5369689018238" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.List.MinimumItem@var[]" />
+    <Dynamo.Nodes.DSFunction guid="3e327d0d-221d-4be6-9984-167bdf48f792" type="Dynamo.Nodes.DSFunction" nickname="List.MaximumItem" x="474.331065983605" y="107.299703264095" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.List.MaximumItem@var[]" />
+    <Dynamo.Nodes.Symbol guid="adfe8626-4c14-4433-ac8f-4f956aab7a7d" type="Dynamo.Nodes.Symbol" nickname="Input" x="12.3442136498516" y="44.6290801186944" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
+      <Symbol value="points" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.DSFunction guid="926f26ad-aa76-4667-bbdc-08a260b47182" type="Dynamo.Nodes.DSFunction" nickname="Point.Z" x="185.051632047478" y="42.713353115727" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Point.Z" />
+    <Dynamo.Nodes.Output guid="a09e0c97-6422-4a91-8898-bdb78683bf90" type="Dynamo.Nodes.Output" nickname="Output" x="667.425519287833" y="-55.0908011869436" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
+      <Symbol value="double" />
+    </Dynamo.Nodes.Output>
+    <Dynamo.Nodes.Output guid="5abfadbc-0a67-4149-890b-867a1c192b26" type="Dynamo.Nodes.Output" nickname="Output" x="670.274183976261" y="19.9240356083086" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
+      <Symbol value="min" />
+    </Dynamo.Nodes.Output>
+    <Dynamo.Nodes.Output guid="102b92ef-2ba1-43e3-b2e6-33f3bb8c5014" type="Dynamo.Nodes.Output" nickname="Output" x="671.223738872404" y="124.375074183976" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
+      <Symbol value="max" />
+    </Dynamo.Nodes.Output>
+  </Elements>
+  <Connectors>
+    <Dynamo.Models.ConnectorModel start="e7500b57-d374-47ec-a208-32a4f48901d4" start_index="0" end="5abfadbc-0a67-4149-890b-867a1c192b26" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="3e327d0d-221d-4be6-9984-167bdf48f792" start_index="0" end="102b92ef-2ba1-43e3-b2e6-33f3bb8c5014" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="adfe8626-4c14-4433-ac8f-4f956aab7a7d" start_index="0" end="926f26ad-aa76-4667-bbdc-08a260b47182" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="926f26ad-aa76-4667-bbdc-08a260b47182" start_index="0" end="3e327d0d-221d-4be6-9984-167bdf48f792" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="926f26ad-aa76-4667-bbdc-08a260b47182" start_index="0" end="e7500b57-d374-47ec-a208-32a4f48901d4" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="926f26ad-aa76-4667-bbdc-08a260b47182" start_index="0" end="a09e0c97-6422-4a91-8898-bdb78683bf90" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+</Workspace>

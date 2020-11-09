@@ -1,0 +1,46 @@
+<Workspace Version="1.1.0.2094" X="-152.342772410281" Y="113.598257188846" zoom="0.675152899770124" Name="Curve.DividePoints" Description="Get the (start) points along an equally divided curve." ID="4a07bdcf-9b92-4de7-8ebf-a47c88bb0a3a" Category="Landform.Geometry.Curve">
+  <NamespaceResolutionMap>
+    <ClassMap partialName="Point" resolvedName="Autodesk.DesignScript.Geometry.Point" assemblyName="ProtoGeometry.dll" />
+    <ClassMap partialName="List" resolvedName="DSCore.List" assemblyName="DSCoreNodes.dll" />
+    <ClassMap partialName="List.Create" resolvedName="DSCore.List" assemblyName="DSCoreNodes.dll" />
+    <ClassMap partialName="Curve" resolvedName="Autodesk.DesignScript.Geometry.Curve" assemblyName="ProtoGeometry.dll" />
+  </NamespaceResolutionMap>
+  <Elements>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="f9fca86b-f0c8-465a-a0f5-a9baddda276e" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="252.070514141365" y="374.650199491278" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <Symbol value="curve" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.CustomNodes.Output guid="4c627826-6355-4a75-864b-f39aac70f4e7" type="Dynamo.Graph.Nodes.CustomNodes.Output" nickname="Output" x="1430.3721463742" y="430.347059410048" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <Symbol value="Points" />
+    </Dynamo.Graph.Nodes.CustomNodes.Output>
+    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="37ea8f27-64eb-4c89-b144-6b52d54e4d49" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="252.99663365337" y="464.887172651941" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <Symbol value="divisions" />
+    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
+    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="db16c439-1346-441b-b493-5f54655b13b7" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Curve.StartPoint" x="810.482942048506" y="417.466138120405" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Curve.StartPoint" />
+    <Dynamo.Graph.Nodes.CodeBlockNodeModel guid="1980e42d-6fc5-48b3-ab8e-7c40b4865490" type="Dynamo.Graph.Nodes.CodeBlockNodeModel" nickname="Code Block" x="1079.62644239332" y="434.939663589981" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" CodeText="Flatten(lst&lt;1&gt;);" ShouldFocus="false" />
+    <Dynamo.Graph.Nodes.CustomNodes.Function guid="55ec68f5-b32f-4a35-b07f-1e3e1f476523" type="Dynamo.Graph.Nodes.CustomNodes.Function" nickname="Curve.DivideEqually" x="543.571638106043" y="384.190175040633" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <ID value="f643ec5d-fd69-4510-b363-891fb0451287" />
+      <Name value="Curve.DivideEqually" />
+      <Description value="Divides a curve into a given number of equal length curves." />
+      <Inputs>
+        <Input value="curve" />
+        <Input value="divisions" />
+      </Inputs>
+      <Outputs>
+        <Output value="Curve" />
+      </Outputs>
+    </Dynamo.Graph.Nodes.CustomNodes.Function>
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="f9fca86b-f0c8-465a-a0f5-a9baddda276e" start_index="0" end="55ec68f5-b32f-4a35-b07f-1e3e1f476523" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="37ea8f27-64eb-4c89-b144-6b52d54e4d49" start_index="0" end="55ec68f5-b32f-4a35-b07f-1e3e1f476523" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="db16c439-1346-441b-b493-5f54655b13b7" start_index="0" end="1980e42d-6fc5-48b3-ab8e-7c40b4865490" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="1980e42d-6fc5-48b3-ab8e-7c40b4865490" start_index="0" end="4c627826-6355-4a75-864b-f39aac70f4e7" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="55ec68f5-b32f-4a35-b07f-1e3e1f476523" start_index="0" end="db16c439-1346-441b-b493-5f54655b13b7" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-451.358947753906" eyeY="545.872436523438" eyeZ="409.850677490234" lookX="446.358947753906" lookY="-534.872436523438" lookZ="-417.850677490234" upX="0.351697266101837" upY="0.876306653022766" upZ="-0.329234898090363" />
+  </Cameras>
+</Workspace>
