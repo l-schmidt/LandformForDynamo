@@ -1,66 +1,849 @@
-<Workspace Version="0.9.0.3067" X="-111.359434069572" Y="140.038195819888" zoom="0.597487094815787" Name="Point.Random" Description="Creates a random set of points within a set of boundary cuves. Tolerance specifies the minimum distance between points." ID="b9274aba-a676-4d34-882d-993f0ebfc0a5" Category="Landform.Geometry.Point">
-  <NamespaceResolutionMap>
-    <ClassMap partialName="Vector" resolvedName="Autodesk.DesignScript.Geometry.Vector" assemblyName="ProtoGeometry.dll" />
-    <ClassMap partialName="Surface" resolvedName="Autodesk.DesignScript.Geometry.Surface" assemblyName="ProtoGeometry.dll" />
-    <ClassMap partialName="PolySurface" resolvedName="Autodesk.DesignScript.Geometry.PolySurface" assemblyName="ProtoGeometry.dll" />
-    <ClassMap partialName="FamilyInstance.ByPoint" resolvedName="Revit.Elements.FamilyInstance" assemblyName="RevitNodes.dll" />
-    <ClassMap partialName="Math" resolvedName="DSCore.Math" assemblyName="DSCoreNodes.dll" />
-  </NamespaceResolutionMap>
-  <Elements>
-    <Dynamo.Nodes.DSFunction guid="6a8b5a33-13e2-4b62-b984-f8eba217b135" type="Dynamo.Nodes.DSFunction" nickname="Math.RandomList" x="412.095207721801" y="135.304341490215" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.Math.RandomList@int" />
-    <Dynamo.Nodes.DSFunction guid="18aea91e-23a4-4b8a-8ee7-513846d983ed" type="Dynamo.Nodes.DSFunction" nickname="Math.RandomList" x="425.44958566863" y="257.801230627993" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.Math.RandomList@int" />
-    <Dynamo.Nodes.DSFunction guid="42279927-c560-4606-bd17-fccab0936a28" type="Dynamo.Nodes.DSFunction" nickname="PolyCurve.ByJoinedCurves" x="435.056374524283" y="487.56606091495" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.PolyCurve.ByJoinedCurves@Autodesk.DesignScript.Geometry.Curve[]" />
-    <Dynamo.Nodes.DSFunction guid="f27ab339-df0c-4b7f-a6a2-12bc60c09074" type="Dynamo.Nodes.DSFunction" nickname="Curve.Patch" x="662.907643684744" y="480.136128224935" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Curve.Patch" />
-    <Dynamo.Nodes.DSFunction guid="24c67df5-9e2b-4eda-aad3-ff3234008af2" type="Dynamo.Nodes.DSFunction" nickname="Surface.PointAtParameter" x="960.795933329844" y="208.359544901582" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Surface.PointAtParameter@double,double">
-      <PortInfo index="1" default="True" />
-      <PortInfo index="2" default="True" />
-    </Dynamo.Nodes.DSFunction>
-    <Dynamo.Nodes.DSFunction guid="022d1f26-f9c9-4ef4-b911-6300db4a607b" type="Dynamo.Nodes.DSFunction" nickname="Point.PruneDuplicates" x="1240.15868215745" y="308.51485655964" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Point.PruneDuplicates@Autodesk.DesignScript.Geometry.Point[],double">
-      <PortInfo index="1" default="True" />
-    </Dynamo.Nodes.DSFunction>
-    <Dynamo.Nodes.DSFunction guid="9a1ccdaf-0405-4a6d-a818-e9e97375a41e" type="Dynamo.Nodes.DSFunction" nickname="Curve.StartPoint" x="1115.34056936439" y="483.909954581995" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Curve.StartPoint" />
-    <Dynamo.Nodes.DSFunction guid="027a62f0-9be7-4a70-9d47-6e3268451604" type="Dynamo.Nodes.DSFunction" nickname="Polygon.ContainmentTest" x="1611.59903649033" y="474.866491813221" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Polygon.ContainmentTest@Autodesk.DesignScript.Geometry.Point" />
-    <Dynamo.Nodes.DSFunction guid="8f09ba0c-b29f-45c4-84a6-9b962f749c9b" type="Dynamo.Nodes.DSFunction" nickname="Polygon.ByPoints" x="1297.55044508109" y="477.687737150855" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Polygon.ByPoints@Autodesk.DesignScript.Geometry.Point[]" />
-    <Dynamo.Nodes.DSFunction guid="c7625403-11e0-49ab-9d38-83f3914f1b99" type="Dynamo.Nodes.DSFunction" nickname="List.FilterByBoolMask" x="1887.47393891477" y="462.478487470408" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.List.FilterByBoolMask@var[]..[],var[]..[]" />
-    <Dynamo.Nodes.Symbol guid="0d9d5d10-07d6-41c1-a553-858e00918e64" type="Dynamo.Nodes.Symbol" nickname="Input" x="1.48686089549687" y="127.87003701273" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
-      <Symbol value="amount : int" />
-    </Dynamo.Nodes.Symbol>
-    <Dynamo.Nodes.Symbol guid="d82ef6f3-6af5-4a68-871c-2fdb47888cd9" type="Dynamo.Nodes.Symbol" nickname="Input" x="0" y="300" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
-      <Symbol value="curves" />
-    </Dynamo.Nodes.Symbol>
-    <Dynamo.Nodes.Symbol guid="c9588512-572f-471b-a90d-af81af84d437" type="Dynamo.Nodes.Symbol" nickname="Input" x="0" y="450" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
-      <Symbol value="tolerance : double" />
-    </Dynamo.Nodes.Symbol>
-    <Dynamo.Nodes.Output guid="fa197f1c-04f4-4a72-8d24-4b7dadc02212" type="Dynamo.Nodes.Output" nickname="Output" x="2135.05795059296" y="478.676354335541" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
-      <Symbol value="Points" />
-    </Dynamo.Nodes.Output>
-    <Dynamo.Nodes.DSFunction guid="0ffca77f-5c24-4840-8a1b-81673eb56965" type="Dynamo.Nodes.DSFunction" nickname="Flatten" x="122.541211225446" y="302.75609723042" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="BuiltIn" function="Flatten@var[]..[]" />
-    <Dynamo.Nodes.DSFunction guid="1231d0df-9a05-4c22-b2f6-071931245839" type="Dynamo.Nodes.DSFunction" nickname="Surface.PerimeterCurves" x="897.925836901005" y="483.894192759253" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Surface.PerimeterCurves" />
-  </Elements>
-  <Connectors>
-    <Dynamo.Models.ConnectorModel start="6a8b5a33-13e2-4b62-b984-f8eba217b135" start_index="0" end="24c67df5-9e2b-4eda-aad3-ff3234008af2" end_index="1" portType="0" />
-    <Dynamo.Models.ConnectorModel start="18aea91e-23a4-4b8a-8ee7-513846d983ed" start_index="0" end="24c67df5-9e2b-4eda-aad3-ff3234008af2" end_index="2" portType="0" />
-    <Dynamo.Models.ConnectorModel start="42279927-c560-4606-bd17-fccab0936a28" start_index="0" end="f27ab339-df0c-4b7f-a6a2-12bc60c09074" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="f27ab339-df0c-4b7f-a6a2-12bc60c09074" start_index="0" end="24c67df5-9e2b-4eda-aad3-ff3234008af2" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="f27ab339-df0c-4b7f-a6a2-12bc60c09074" start_index="0" end="1231d0df-9a05-4c22-b2f6-071931245839" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="24c67df5-9e2b-4eda-aad3-ff3234008af2" start_index="0" end="022d1f26-f9c9-4ef4-b911-6300db4a607b" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="022d1f26-f9c9-4ef4-b911-6300db4a607b" start_index="0" end="027a62f0-9be7-4a70-9d47-6e3268451604" end_index="1" portType="0" />
-    <Dynamo.Models.ConnectorModel start="022d1f26-f9c9-4ef4-b911-6300db4a607b" start_index="0" end="c7625403-11e0-49ab-9d38-83f3914f1b99" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="9a1ccdaf-0405-4a6d-a818-e9e97375a41e" start_index="0" end="8f09ba0c-b29f-45c4-84a6-9b962f749c9b" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="027a62f0-9be7-4a70-9d47-6e3268451604" start_index="0" end="c7625403-11e0-49ab-9d38-83f3914f1b99" end_index="1" portType="0" />
-    <Dynamo.Models.ConnectorModel start="8f09ba0c-b29f-45c4-84a6-9b962f749c9b" start_index="0" end="027a62f0-9be7-4a70-9d47-6e3268451604" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="c7625403-11e0-49ab-9d38-83f3914f1b99" start_index="0" end="fa197f1c-04f4-4a72-8d24-4b7dadc02212" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="0d9d5d10-07d6-41c1-a553-858e00918e64" start_index="0" end="6a8b5a33-13e2-4b62-b984-f8eba217b135" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="0d9d5d10-07d6-41c1-a553-858e00918e64" start_index="0" end="18aea91e-23a4-4b8a-8ee7-513846d983ed" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="d82ef6f3-6af5-4a68-871c-2fdb47888cd9" start_index="0" end="0ffca77f-5c24-4840-8a1b-81673eb56965" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="c9588512-572f-471b-a90d-af81af84d437" start_index="0" end="022d1f26-f9c9-4ef4-b911-6300db4a607b" end_index="1" portType="0" />
-    <Dynamo.Models.ConnectorModel start="0ffca77f-5c24-4840-8a1b-81673eb56965" start_index="0" end="42279927-c560-4606-bd17-fccab0936a28" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="1231d0df-9a05-4c22-b2f6-071931245839" start_index="0" end="9a1ccdaf-0405-4a6d-a818-e9e97375a41e" end_index="0" portType="0" />
-  </Connectors>
-  <Notes />
-  <Annotations />
-  <Presets />
-  <Cameras>
-    <Camera Name="Background Preview" eyeX="-28.8392467498779" eyeY="79.0925903320313" eyeZ="-19.9677429199219" lookX="0.000919624872040004" lookY="-5.0539345741272" lookZ="-0.107669033110142" upX="0.00830153468996286" upY="0.235142096877098" upZ="-0.971925556659698" />
-  </Cameras>
-</Workspace>
+{
+  "Uuid": "b9274aba-a676-4d34-882d-993f0ebfc0a5",
+  "IsCustomNode": true,
+  "Category": "Landform.Geometry.Point",
+  "Description": "Creates a random set of points within a set of boundary cuves. Tolerance specifies the minimum distance between points. Actual number may not match input amount; see Point.RandomActual.",
+  "Name": "Point.Random",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Vector": {
+        "Key": "Autodesk.DesignScript.Geometry.Vector",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Surface": {
+        "Key": "Autodesk.DesignScript.Geometry.Surface",
+        "Value": "ProtoGeometry.dll"
+      },
+      "PolySurface": {
+        "Key": "Autodesk.DesignScript.Geometry.PolySurface",
+        "Value": "ProtoGeometry.dll"
+      },
+      "FamilyInstance.ByPoint": {
+        "Key": "Revit.Elements.FamilyInstance",
+        "Value": "RevitNodes.dll"
+      },
+      "Math": {
+        "Key": "DSCore.Math",
+        "Value": "DSCoreNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.Math.RandomList@int",
+      "Id": "6a8b5a3313e24b62b984f8eba217b135",
+      "Inputs": [
+        {
+          "Id": "e7e609876d9640a6a3cb1e09b03b11cc",
+          "Name": "amount",
+          "Description": "Amount of random numbers the result list will contain.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0f836b6f412c4c2ab9b2de2ec90520b7",
+          "Name": "number",
+          "Description": "List of random numbers between 0 and 1.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Produces a list containing the given amount of random doubles in the range of [0, 1).\n\nMath.RandomList (amount: int): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.Math.RandomList@int",
+      "Id": "18aea91e23a44b8a8ee7513846d983ed",
+      "Inputs": [
+        {
+          "Id": "59466c81417d4c7cbd4188b6e4a518ae",
+          "Name": "amount",
+          "Description": "Amount of random numbers the result list will contain.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "35f790ffcf0347198eed9e4b9cab0603",
+          "Name": "number",
+          "Description": "List of random numbers between 0 and 1.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Produces a list containing the given amount of random doubles in the range of [0, 1).\n\nMath.RandomList (amount: int): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.PolyCurve.ByJoinedCurves@Autodesk.DesignScript.Geometry.Curve[],double",
+      "Id": "42279927c5604606bd17fccab0936a28",
+      "Inputs": [
+        {
+          "Id": "a9ba04bb5a304c2b998e598ef790ea68",
+          "Name": "curves",
+          "Description": "Curves to join into polycurve\n\nCurve[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a8a85de03a9547dd87b6b11c15a046fe",
+          "Name": "joinTolerance",
+          "Description": "Tolerance to determine size of gap allowed between curves to be joined\n\ndouble\nDefault value : 0.001",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "bcda1740cb8c4287b89f998ba39ac41b",
+          "Name": "PolyCurve",
+          "Description": "PolyCurve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Make PolyCurve by joining curves. Flips curve as needed for connectivity. Choose a preferred join tolerance between 1e-6 and 1e-3 units.\n\nPolyCurve.ByJoinedCurves (curves: Curve[], joinTolerance: double = 0.001): PolyCurve"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Curve.Patch",
+      "Id": "f27ab339df0c4b7fa6a212bc60c09074",
+      "Inputs": [
+        {
+          "Id": "356f5ca707b1477c80f1dd44090b552b",
+          "Name": "curve",
+          "Description": "Autodesk.DesignScript.Geometry.Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "250b1c46e7a34c63bbc3b81380e4034f",
+          "Name": "Surface",
+          "Description": "A Surface on the interior of the curve the Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Patch a closed Curve\n\nCurve.Patch ( ): Surface"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Surface.PointAtParameter@double,double",
+      "Id": "24c67df59e2b4edaaad3ff3234008af2",
+      "Inputs": [
+        {
+          "Id": "e5ca8df07088451290e04a85fdd02bf8",
+          "Name": "surface",
+          "Description": "Autodesk.DesignScript.Geometry.Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3ae7eeb7085840af82a9e374eb715855",
+          "Name": "u",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "fec09093eacd4b45b4a1fb1b52428a84",
+          "Name": "v",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9b7047a19c0c487ebafb2da9db49750f",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Return the Point at specified U and V parameters.\n\nSurface.PointAtParameter (u: double = 0, v: double = 0): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.PruneDuplicates@Autodesk.DesignScript.Geometry.Point[],double",
+      "Id": "022d1f26f9c94ef4b9116300db4a607b",
+      "Inputs": [
+        {
+          "Id": "291e8c2bd1b647ce8924c15f1dae3adf",
+          "Name": "points",
+          "Description": "Points to prune\n\nPoint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "981815406d8a49c8a9f2d6ed8bf9c008",
+          "Name": "tolerance",
+          "Description": "Tolerance for pruning\n\ndouble\nDefault value : 0.001",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "86cbe5e0042345d29cf40ee58819276f",
+          "Name": "Point[]",
+          "Description": "Point[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Prune points to exclude duplicates within tolerance of included points\n\nPoint.PruneDuplicates (points: Point[], tolerance: double = 0.001): Point[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Curve.StartPoint",
+      "Id": "9a1ccdaf04054a6da818e9e97375a41e",
+      "Inputs": [
+        {
+          "Id": "8f6c6f14675142d9960636ce4770e0dc",
+          "Name": "curve",
+          "Description": "Autodesk.DesignScript.Geometry.Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a3ca5958512c44e3aab660c78dc617f4",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the start Point along the Curve\n\nCurve.StartPoint: Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Polygon.ContainmentTest@Autodesk.DesignScript.Geometry.Point",
+      "Id": "027a62f09be74a709d476e3268451604",
+      "Inputs": [
+        {
+          "Id": "96e9336e64ba40aa92a8b6fa7e8c94a4",
+          "Name": "polygon",
+          "Description": "Autodesk.DesignScript.Geometry.Polygon",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1c5b077d7ee447549ee342ca9e508c2f",
+          "Name": "point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "42e09e3b69b14631b4cdd11be314174f",
+          "Name": "bool",
+          "Description": "bool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Checks if point is inside planar polygon without self intersections.\n\nPolygon.ContainmentTest (point: Point): bool"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Polygon.ByPoints@Autodesk.DesignScript.Geometry.Point[]",
+      "Id": "8f09ba0cb29f45c484a69b962f749c9b",
+      "Inputs": [
+        {
+          "Id": "ed9209eed7df4ddd9c9f6e8b8a890ca1",
+          "Name": "points",
+          "Description": "Point[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "706d2df262324846bbb044d58e391baa",
+          "Name": "Polygon",
+          "Description": "Polygon",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Construct a Polygon Curve by connecting Points.\n\nPolygon.ByPoints (points: Point[]): Polygon"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.FilterByBoolMask@var[]..[],var[]..[]",
+      "Id": "c762540311e049ab9d3883f3914f1b99",
+      "Inputs": [
+        {
+          "Id": "0d5484248ebf446a953c62be21415be6",
+          "Name": "list",
+          "Description": "List to filter.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "75a4f9c479a748d3860370ab46c08cd4",
+          "Name": "mask",
+          "Description": "List of booleans representing a mask.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0256e9e9f1634482b06c328d8027d3a9",
+          "Name": "in",
+          "Description": "Items whose mask index is true.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "31a40f31fb85493fbad39b24dd5b43f2",
+          "Name": "out",
+          "Description": "Items whose mask index is false.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Filters a sequence by looking up corresponding indices in a separate list of booleans.\n\nList.FilterByBoolMask (list: var[]..[], mask: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "amount",
+        "TypeName": "int",
+        "TypeRank": 0,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "0d9d5d1007d641c1a553858e00918e64",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "6fc57813ccf44f4bae9b69ffe1f4675a",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "curves",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "d82ef6f36af54a68871c2fdb47888cd9",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ff72c6ab81014fd4856d7d07811e05ad",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "tolerance",
+        "TypeName": "double",
+        "TypeRank": 0,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "c9588512572f471ba90daf81af84d437",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "aec9e4a2f61b471fa66423843efe7de5",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "Points",
+      "Id": "fa197f1c04f44a728d244b7dadc02212",
+      "Inputs": [
+        {
+          "Id": "849869d9b1c0474aabf7ad347e8c7845",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "0ffca77f5c2448408a1b81673eb56965",
+      "Inputs": [
+        {
+          "Id": "40b55b3302324f24aad1cb7ebbd4ac5f",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2434d75d8d554f0ca0bf56d1976b8135",
+          "Name": "amt",
+          "Description": "Layers of nesting to remove.\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e4080e1c0c184ea7a9b6f2aa0fdcfba7",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amt: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Surface.PerimeterCurves",
+      "Id": "1231d0df9a054c22b2f6071931245839",
+      "Inputs": [
+        {
+          "Id": "133ce4a4b10445c8893d833cc929a97e",
+          "Name": "surface",
+          "Description": "Autodesk.DesignScript.Geometry.Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "cfd84fd057d04c2492835bd90afca4fd",
+          "Name": "Curve[]",
+          "Description": "Curve[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Return all the boundary Curves of the Surface.\n\nSurface.PerimeterCurves ( ): Curve[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "0f836b6f412c4c2ab9b2de2ec90520b7",
+      "End": "3ae7eeb7085840af82a9e374eb715855",
+      "Id": "184bb47c6a37400f97af6ea437a8ae9a"
+    },
+    {
+      "Start": "35f790ffcf0347198eed9e4b9cab0603",
+      "End": "fec09093eacd4b45b4a1fb1b52428a84",
+      "Id": "2c8dc6f715c74d53bef8ce6bec14252e"
+    },
+    {
+      "Start": "bcda1740cb8c4287b89f998ba39ac41b",
+      "End": "356f5ca707b1477c80f1dd44090b552b",
+      "Id": "dff5cc53275d4b258e38b73a3d5e47c8"
+    },
+    {
+      "Start": "250b1c46e7a34c63bbc3b81380e4034f",
+      "End": "e5ca8df07088451290e04a85fdd02bf8",
+      "Id": "18981b9207f04b60a2954dc5d443de80"
+    },
+    {
+      "Start": "250b1c46e7a34c63bbc3b81380e4034f",
+      "End": "133ce4a4b10445c8893d833cc929a97e",
+      "Id": "dffe46d0100446b7841e93630646cbce"
+    },
+    {
+      "Start": "9b7047a19c0c487ebafb2da9db49750f",
+      "End": "291e8c2bd1b647ce8924c15f1dae3adf",
+      "Id": "9058b45ea7ce461aaed614384986609b"
+    },
+    {
+      "Start": "86cbe5e0042345d29cf40ee58819276f",
+      "End": "1c5b077d7ee447549ee342ca9e508c2f",
+      "Id": "563c65c03269458dae207711640b34cc"
+    },
+    {
+      "Start": "86cbe5e0042345d29cf40ee58819276f",
+      "End": "0d5484248ebf446a953c62be21415be6",
+      "Id": "5499b1e079664352bb23333853e92bfd"
+    },
+    {
+      "Start": "a3ca5958512c44e3aab660c78dc617f4",
+      "End": "ed9209eed7df4ddd9c9f6e8b8a890ca1",
+      "Id": "ad63df96e5e14122829e25c434d2b7a3"
+    },
+    {
+      "Start": "42e09e3b69b14631b4cdd11be314174f",
+      "End": "75a4f9c479a748d3860370ab46c08cd4",
+      "Id": "39f674ee0855489eb5a318bbb7a0a76c"
+    },
+    {
+      "Start": "706d2df262324846bbb044d58e391baa",
+      "End": "96e9336e64ba40aa92a8b6fa7e8c94a4",
+      "Id": "9cb95b6210f24b11b5eff6f6a7309568"
+    },
+    {
+      "Start": "0256e9e9f1634482b06c328d8027d3a9",
+      "End": "849869d9b1c0474aabf7ad347e8c7845",
+      "Id": "4bb7b47d73a24fc19a1980fd21b38f2c"
+    },
+    {
+      "Start": "6fc57813ccf44f4bae9b69ffe1f4675a",
+      "End": "e7e609876d9640a6a3cb1e09b03b11cc",
+      "Id": "0da540df9f88490d962235a3658672a3"
+    },
+    {
+      "Start": "6fc57813ccf44f4bae9b69ffe1f4675a",
+      "End": "59466c81417d4c7cbd4188b6e4a518ae",
+      "Id": "9dd7a280939d4e30a590a3aaedacc23f"
+    },
+    {
+      "Start": "ff72c6ab81014fd4856d7d07811e05ad",
+      "End": "40b55b3302324f24aad1cb7ebbd4ac5f",
+      "Id": "e39c3c2a92c542bc879f30514852a700"
+    },
+    {
+      "Start": "aec9e4a2f61b471fa66423843efe7de5",
+      "End": "981815406d8a49c8a9f2d6ed8bf9c008",
+      "Id": "6015ed3a9faf4fc28ad15e8e93b7a86c"
+    },
+    {
+      "Start": "e4080e1c0c184ea7a9b6f2aa0fdcfba7",
+      "End": "a9ba04bb5a304c2b998e598ef790ea68",
+      "Id": "7bc66068720c4c57b73d33dae6400163"
+    },
+    {
+      "Start": "cfd84fd057d04c2492835bd90afca4fd",
+      "End": "8f6c6f14675142d9960636ce4770e0dc",
+      "Id": "7debeb484fa940a4be8521629efb08ff"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.6.1.8786",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -28.83924674987793,
+      "EyeY": 79.09259033203125,
+      "EyeZ": -19.967742919921875,
+      "LookX": 0.00091962487204000354,
+      "LookY": -5.0539345741271973,
+      "LookZ": -0.10766903311014175,
+      "UpX": 0.0083015346899628639,
+      "UpY": 0.23514209687709808,
+      "UpZ": -0.97192555665969849
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Math.RandomList",
+        "Id": "6a8b5a3313e24b62b984f8eba217b135",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 412.095207721801,
+        "Y": 135.304341490215
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Math.RandomList",
+        "Id": "18aea91e23a44b8a8ee7513846d983ed",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 425.44958566863,
+        "Y": 257.801230627993
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "PolyCurve.ByJoinedCurves",
+        "Id": "42279927c5604606bd17fccab0936a28",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 435.056374524283,
+        "Y": 487.56606091495
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Curve.Patch",
+        "Id": "f27ab339df0c4b7fa6a212bc60c09074",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 662.907643684744,
+        "Y": 480.136128224935
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Surface.PointAtParameter",
+        "Id": "24c67df59e2b4edaaad3ff3234008af2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 960.795933329844,
+        "Y": 208.359544901582
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Point.PruneDuplicates",
+        "Id": "022d1f26f9c94ef4b9116300db4a607b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1240.15868215745,
+        "Y": 308.51485655964
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Curve.StartPoint",
+        "Id": "9a1ccdaf04054a6da818e9e97375a41e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1115.34056936439,
+        "Y": 483.909954581995
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Polygon.ContainmentTest",
+        "Id": "027a62f09be74a709d476e3268451604",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1611.59903649033,
+        "Y": 474.866491813221
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Polygon.ByPoints",
+        "Id": "8f09ba0cb29f45c484a69b962f749c9b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1297.55044508109,
+        "Y": 477.687737150855
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.FilterByBoolMask",
+        "Id": "c762540311e049ab9d3883f3914f1b99",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1887.47393891477,
+        "Y": 462.478487470408
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "0d9d5d1007d641c1a553858e00918e64",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1.48686089549687,
+        "Y": 127.87003701273
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "d82ef6f36af54a68871c2fdb47888cd9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 0.0,
+        "Y": 300.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "c9588512572f471ba90daf81af84d437",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 0.0,
+        "Y": 450.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "fa197f1c04f44a728d244b7dadc02212",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2135.05795059296,
+        "Y": 478.676354335541
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.Flatten",
+        "Id": "0ffca77f5c2448408a1b81673eb56965",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 122.541211225446,
+        "Y": 302.75609723042
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Surface.PerimeterCurves",
+        "Id": "1231d0df9a054c22b2f6071931245839",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 897.925836901005,
+        "Y": 483.894192759253
+      }
+    ],
+    "Annotations": [],
+    "X": -111.359434069572,
+    "Y": 140.038195819888,
+    "Zoom": 0.597487094815787
+  }
+}

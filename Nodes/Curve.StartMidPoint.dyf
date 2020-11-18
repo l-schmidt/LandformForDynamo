@@ -1,48 +1,450 @@
-<Workspace Version="0.9.0.3067" X="-100.959362995985" Y="136.880998484717" zoom="0.691676179653715" Name="Curve.StartMidPoint" Description="Get the start point and midpoint along the Curve." ID="2b1ab488-7fba-49e9-b5f0-18779ff652b2" Category="Landform.Geometry.Curve">
-  <NamespaceResolutionMap>
-    <ClassMap partialName="Point" resolvedName="Autodesk.DesignScript.Geometry.Point" assemblyName="ProtoGeometry.dll" />
-    <ClassMap partialName="List" resolvedName="DSCore.List" assemblyName="DSCoreNodes.dll" />
-    <ClassMap partialName="List.Create" resolvedName="DSCore.List" assemblyName="DSCoreNodes.dll" />
-    <ClassMap partialName="Curve" resolvedName="Autodesk.DesignScript.Geometry.Curve" assemblyName="ProtoGeometry.dll" />
-  </NamespaceResolutionMap>
-  <Elements>
-    <Dynamo.Nodes.DSFunction guid="38f40a28-4f76-4954-8102-6374012112e3" type="Dynamo.Nodes.DSFunction" nickname="Curve.StartPoint" x="555.926834729214" y="199.065815310956" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Curve.StartPoint" />
-    <DSCore.Combine guid="f696760a-be4f-4334-8b35-ebc00e72b32a" type="DSCore.Combine" nickname="List.Combine" x="930.893097178986" y="249.685471599556" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" inputcount="3" />
-    <DSCoreNodesUI.CreateList guid="d91dd1f6-aa94-41ad-9f58-f59cdd691bb8" type="DSCoreNodesUI.CreateList" nickname="List.Create" x="727.452095779667" y="104.311804457843" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" inputcount="2" />
-    <Dynamo.Nodes.CodeBlockNodeModel guid="a0e0e512-73d8-47f2-86ff-20c37f47a4cc" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="1160.93837981342" y="253.754396035489" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" CodeText="List.Transpose(lst&lt;1&gt;);" ShouldFocus="false" />
-    <Dynamo.Nodes.CodeBlockNodeModel guid="481498b9-a9e8-4133-b4cf-a40cec1780f5" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="1470.65463396985" y="254.030081145486" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" CodeText="Flatten(lst&lt;1&gt;);" ShouldFocus="false" />
-    <Dynamo.Nodes.Symbol guid="f9fca86b-f0c8-465a-a0f5-a9baddda276e" type="Dynamo.Nodes.Symbol" nickname="Input" x="249.757292944705" y="275.181688034885" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
-      <Symbol value="curve" />
-    </Dynamo.Nodes.Symbol>
-    <Dynamo.Nodes.Output guid="4c627826-6355-4a75-864b-f39aac70f4e7" type="Dynamo.Nodes.Output" nickname="Output" x="1731.09090194004" y="252.229027267204" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
-      <Symbol value="Points" />
-    </Dynamo.Nodes.Output>
-    <Dynamo.Nodes.Function guid="32ba714c-f8c4-4d6b-856f-fe11cf11aa30" type="Dynamo.Nodes.Function" nickname="Curve.MidPoint" x="571.882962175537" y="319.602085933898" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
-      <ID value="17905fee-de0e-4722-9319-1785ecf384f3" />
-      <Name value="Curve.MidPoint" />
-      <Description value="Get the midpoint along the Curve" />
-      <Inputs>
-        <Input value="curve" />
-      </Inputs>
-      <Outputs>
-        <Output value="Point" />
-      </Outputs>
-    </Dynamo.Nodes.Function>
-  </Elements>
-  <Connectors>
-    <Dynamo.Models.ConnectorModel start="38f40a28-4f76-4954-8102-6374012112e3" start_index="0" end="f696760a-be4f-4334-8b35-ebc00e72b32a" end_index="1" portType="0" />
-    <Dynamo.Models.ConnectorModel start="f696760a-be4f-4334-8b35-ebc00e72b32a" start_index="0" end="a0e0e512-73d8-47f2-86ff-20c37f47a4cc" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="d91dd1f6-aa94-41ad-9f58-f59cdd691bb8" start_index="0" end="f696760a-be4f-4334-8b35-ebc00e72b32a" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="a0e0e512-73d8-47f2-86ff-20c37f47a4cc" start_index="0" end="481498b9-a9e8-4133-b4cf-a40cec1780f5" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="481498b9-a9e8-4133-b4cf-a40cec1780f5" start_index="0" end="4c627826-6355-4a75-864b-f39aac70f4e7" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="f9fca86b-f0c8-465a-a0f5-a9baddda276e" start_index="0" end="38f40a28-4f76-4954-8102-6374012112e3" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="f9fca86b-f0c8-465a-a0f5-a9baddda276e" start_index="0" end="32ba714c-f8c4-4d6b-856f-fe11cf11aa30" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="32ba714c-f8c4-4d6b-856f-fe11cf11aa30" start_index="0" end="f696760a-be4f-4334-8b35-ebc00e72b32a" end_index="2" portType="0" />
-  </Connectors>
-  <Notes />
-  <Annotations />
-  <Presets />
-  <Cameras>
-    <Camera Name="Background Preview" eyeX="-28.8392467498779" eyeY="79.0925903320313" eyeZ="-19.9677429199219" lookX="0.000919624872040004" lookY="-5.0539345741272" lookZ="-0.107669033110142" upX="0.00830153468996286" upY="0.235142096877098" upZ="-0.971925556659698" />
-  </Cameras>
-</Workspace>
+{
+  "Uuid": "2b1ab488-7fba-49e9-b5f0-18779ff652b2",
+  "IsCustomNode": true,
+  "Category": "Landform.Geometry.Curve",
+  "Description": "Get the start point and midpoint along the Curve.",
+  "Name": "Curve.StartMidPoint",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      },
+      "List": {
+        "Key": "DSCore.List",
+        "Value": "DSCoreNodes.dll"
+      },
+      "List.Create": {
+        "Key": "DSCore.List",
+        "Value": "DSCoreNodes.dll"
+      },
+      "Curve": {
+        "Key": "Autodesk.DesignScript.Geometry.Curve",
+        "Value": "ProtoGeometry.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Curve.StartPoint",
+      "Id": "38f40a284f76495481026374012112e3",
+      "Inputs": [
+        {
+          "Id": "7f1be8771e3f436aa11140b7708ab9bb",
+          "Name": "curve",
+          "Description": "Autodesk.DesignScript.Geometry.Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3ca6bc415e864f6b8f25925f4dc9ed7a",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the start Point along the Curve\n\nCurve.StartPoint: Point"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.HigherOrder.Combine, CoreNodeModels",
+      "VariableInputPorts": true,
+      "NodeType": "ExtensionNode",
+      "Id": "f696760abe4f43348b35ebc00e72b32a",
+      "Inputs": [
+        {
+          "Id": "dd7bc408dc43484296f02eb63a914635",
+          "Name": "comb",
+          "Description": "Combinator",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b375406a21c049e9b3a3edf4c65100c3",
+          "Name": "list1",
+          "Description": "List #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a49bebe931aa4deb94938d3a362bd1c1",
+          "Name": "list2",
+          "Description": "List #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "52b4a48ce41d4c9187ed3aad69d35b44",
+          "Name": "combined",
+          "Description": "Combined lists",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Applies a combinator to each element in two sequences"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "List.Transpose(lst<1>);",
+      "Id": "a0e0e51273d847f286ff20c37f47a4cc",
+      "Inputs": [
+        {
+          "Id": "058111a211e64657a1c1760ec989838a",
+          "Name": "lst",
+          "Description": "lst",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "bf815a39250e49a98c80654afd879d16",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "curve",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "f9fca86bf0c8465aa0f5a9baddda276e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "61d902f29d5d4bdaa13293b6ad46cf5d",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "Points",
+      "Id": "4c62782663554a75864bf39aac70f4e7",
+      "Inputs": [
+        {
+          "Id": "ad9dcf6d7da54d74aa2ba4bb83dae545",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "17905fee-de0e-4722-9319-1785ecf384f3",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "32ba714cf8c44d6b856ffe11cf11aa30",
+      "Inputs": [
+        {
+          "Id": "c20b8dbdb7c049ba93516ee871b05402",
+          "Name": "curve",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "982ded992d2947f2af7fc9384d63d552",
+          "Name": "Point",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the midpoint along the Curve"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.CreateList, CoreNodeModels",
+      "VariableInputPorts": true,
+      "NodeType": "ExtensionNode",
+      "Id": "20b8462a518a4cb6ad806e3b3f74144a",
+      "Inputs": [
+        {
+          "Id": "e9db68306f3b4cbda136f83a85f37564",
+          "Name": "item0",
+          "Description": "Item Index #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "10d82bbd19b0493d9c16c823791f3dae",
+          "Name": "list",
+          "Description": "A list",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Makes a new list out of the given inputs"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "c604bb1e4342415986e68f63c165cc2e",
+      "Inputs": [
+        {
+          "Id": "f7dd8da7fa37456283344a5fc811c238",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ee37a008388e413aa32fece4ffe3e6c8",
+          "Name": "amt",
+          "Description": "Layers of nesting to remove.\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "830b315c432b4148b3607084213ab3c9",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amt: int = -1): var[]..[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "3ca6bc415e864f6b8f25925f4dc9ed7a",
+      "End": "b375406a21c049e9b3a3edf4c65100c3",
+      "Id": "459e4eb9ac844bdfa82c0957c8416420"
+    },
+    {
+      "Start": "52b4a48ce41d4c9187ed3aad69d35b44",
+      "End": "058111a211e64657a1c1760ec989838a",
+      "Id": "d1725751cc8c454f9a82e1f795dee144"
+    },
+    {
+      "Start": "bf815a39250e49a98c80654afd879d16",
+      "End": "f7dd8da7fa37456283344a5fc811c238",
+      "Id": "be72450aa1f04219bcc90bc167d5d583"
+    },
+    {
+      "Start": "61d902f29d5d4bdaa13293b6ad46cf5d",
+      "End": "7f1be8771e3f436aa11140b7708ab9bb",
+      "Id": "8c13d88220664eb6a06f49aff13cbecf"
+    },
+    {
+      "Start": "61d902f29d5d4bdaa13293b6ad46cf5d",
+      "End": "c20b8dbdb7c049ba93516ee871b05402",
+      "Id": "61eab4d0517f4a1fa41e49cdc8d71740"
+    },
+    {
+      "Start": "982ded992d2947f2af7fc9384d63d552",
+      "End": "a49bebe931aa4deb94938d3a362bd1c1",
+      "Id": "6d783327c5d94d15b5d0b706f188763b"
+    },
+    {
+      "Start": "10d82bbd19b0493d9c16c823791f3dae",
+      "End": "dd7bc408dc43484296f02eb63a914635",
+      "Id": "37143a8d945040198ae3736a7b62d5e6"
+    },
+    {
+      "Start": "830b315c432b4148b3607084213ab3c9",
+      "End": "ad9dcf6d7da54d74aa2ba4bb83dae545",
+      "Id": "7bfe36dbf3bc4bbb98d8311b7eafec17"
+    }
+  ],
+  "Dependencies": [
+    "17905fee-de0e-4722-9319-1785ecf384f3"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "Landform",
+      "Version": "2016.10.13",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "32ba714cf8c44d6b856ffe11cf11aa30"
+      ]
+    }
+  ],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.6.1.8786",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -28.83924674987793,
+      "EyeY": 79.09259033203125,
+      "EyeZ": -19.967742919921875,
+      "LookX": 0.00091962487204000354,
+      "LookY": -5.0539345741271973,
+      "LookZ": -0.10766903311014175,
+      "UpX": 0.0083015346899628639,
+      "UpY": 0.23514209687709808,
+      "UpZ": -0.97192555665969849
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Curve.StartPoint",
+        "Id": "38f40a284f76495481026374012112e3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 555.926834729214,
+        "Y": 199.065815310956
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.Combine",
+        "Id": "f696760abe4f43348b35ebc00e72b32a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 930.893097178986,
+        "Y": 249.685471599556
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "a0e0e51273d847f286ff20c37f47a4cc",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1160.93837981342,
+        "Y": 253.754396035489
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "f9fca86bf0c8465aa0f5a9baddda276e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 249.757292944705,
+        "Y": 275.181688034885
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "4c62782663554a75864bf39aac70f4e7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1731.09090194004,
+        "Y": 252.229027267204
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Curve.MidPoint",
+        "Id": "32ba714cf8c44d6b856ffe11cf11aa30",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 571.882962175537,
+        "Y": 319.602085933898
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List Create",
+        "Id": "20b8462a518a4cb6ad806e3b3f74144a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 676.18556644061289,
+        "Y": 54.130243869819395
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.Flatten",
+        "Id": "c604bb1e4342415986e68f63c165cc2e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1484.3730298236817,
+        "Y": 216.79303933303845
+      }
+    ],
+    "Annotations": [],
+    "X": -137.69739015125572,
+    "Y": 249.37545098957037,
+    "Zoom": 0.66307579993665677
+  }
+}

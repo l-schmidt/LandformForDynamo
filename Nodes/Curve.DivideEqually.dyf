@@ -1,31 +1,273 @@
-<Workspace Version="1.1.0.2094" X="103.540990354214" Y="181.806257560013" zoom="0.679007436100057" Name="Curve.DivideEqually" Description="Divides a curve into a given number of equal length curves." ID="f643ec5d-fd69-4510-b363-891fb0451287" Category="Landform.Geometry.Curve">
-  <NamespaceResolutionMap />
-  <Elements>
-    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="8ad3940e-bc85-4472-a1e7-af4c518682cf" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Curve.PointsAtEqualSegmentLength" x="250" y="98.6082981789737" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Curve.PointsAtEqualSegmentLength@int">
-      <PortInfo index="1" default="True" />
-    </Dynamo.Graph.Nodes.ZeroTouch.DSFunction>
-    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="3573be52-7bc1-40cd-a214-228031c84b97" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Curve.SplitByPoints" x="553.960928136851" y="0" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Curve.SplitByPoints@Autodesk.DesignScript.Geometry.Point[]" />
-    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="6949f82f-3242-4989-9718-bd436d617560" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="0" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
-      <Symbol value="curve" />
-    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
-    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="c653b5a3-1c1f-42a3-aa68-c5d04b14dffd" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="0" y="150" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
-      <Symbol value="divisions : int" />
-    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
-    <Dynamo.Graph.Nodes.CustomNodes.Output guid="d7328048-33c0-4bb6-b700-d4a132e2a551" type="Dynamo.Graph.Nodes.CustomNodes.Output" nickname="Output" x="769.760928136851" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
-      <Symbol value="Curve[]" />
-    </Dynamo.Graph.Nodes.CustomNodes.Output>
-  </Elements>
-  <Connectors>
-    <Dynamo.Graph.Connectors.ConnectorModel start="8ad3940e-bc85-4472-a1e7-af4c518682cf" start_index="0" end="3573be52-7bc1-40cd-a214-228031c84b97" end_index="1" portType="0" />
-    <Dynamo.Graph.Connectors.ConnectorModel start="3573be52-7bc1-40cd-a214-228031c84b97" start_index="0" end="d7328048-33c0-4bb6-b700-d4a132e2a551" end_index="0" portType="0" />
-    <Dynamo.Graph.Connectors.ConnectorModel start="6949f82f-3242-4989-9718-bd436d617560" start_index="0" end="8ad3940e-bc85-4472-a1e7-af4c518682cf" end_index="0" portType="0" />
-    <Dynamo.Graph.Connectors.ConnectorModel start="6949f82f-3242-4989-9718-bd436d617560" start_index="0" end="3573be52-7bc1-40cd-a214-228031c84b97" end_index="0" portType="0" />
-    <Dynamo.Graph.Connectors.ConnectorModel start="c653b5a3-1c1f-42a3-aa68-c5d04b14dffd" start_index="0" end="8ad3940e-bc85-4472-a1e7-af4c518682cf" end_index="1" portType="0" />
-  </Connectors>
-  <Notes />
-  <Annotations />
-  <Presets />
-  <Cameras>
-    <Camera Name="Background Preview" eyeX="-451.35895161891" eyeY="545.872445470806" eyeZ="409.850688617741" lookX="446.35895161891" lookY="-534.872445470806" lookZ="-417.850688617741" upX="0.35169727830944" upY="0.876306680043862" upZ="-0.329234911484542" />
-  </Cameras>
-</Workspace>
+{
+  "Uuid": "f643ec5d-fd69-4510-b363-891fb0451287",
+  "IsCustomNode": true,
+  "Category": "Landform.Geometry.Curve",
+  "Description": "Divides a curve into a given number of equal length curves.",
+  "Name": "Curve.DivideEqually",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Curve.PointsAtEqualSegmentLength@int",
+      "Id": "8ad3940ebc854472a1e7af4c518682cf",
+      "Inputs": [
+        {
+          "Id": "28ae0edda941470abf73b3317aa3ddb7",
+          "Name": "curve",
+          "Description": "Autodesk.DesignScript.Geometry.Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3c082edfcc144186b894e3034570d78f",
+          "Name": "divisions",
+          "Description": "int\nDefault value : 10",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "bf65525615954136b871d7b2a83a6d75",
+          "Name": "Point[]",
+          "Description": "Points spaced equally along length of curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns points spaced equally along the curve length based on the input number of divisions\n\nCurve.PointsAtEqualSegmentLength (divisions: int = 10): Point[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Curve.SplitByPoints@Autodesk.DesignScript.Geometry.Point[]",
+      "Id": "3573be527bc140cda214228031c84b97",
+      "Inputs": [
+        {
+          "Id": "9226567de10d438db6309f5d1de7391c",
+          "Name": "curve",
+          "Description": "Autodesk.DesignScript.Geometry.Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6009fda6c7714ebba2a04cd1b6620fe4",
+          "Name": "points",
+          "Description": "The points on the curve at which to split the curve\n\nPoint[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b73da657c3fd43a1aeb1004d809d4ca1",
+          "Name": "Curve[]",
+          "Description": "Curves created from splitting",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Split a Curve into multiple pieces at the given points\n\nCurve.SplitByPoints (points: Point[]): Curve[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "curve",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "6949f82f324249899718bd436d617560",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "e1d15d73c1ff45ba997536057da3fe44",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "divisions",
+        "TypeName": "int",
+        "TypeRank": 0,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "c653b5a31c1f42a3aa68c5d04b14dffd",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9ed803d9259c4d2b86957bbaf753cb23",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "Curve[]",
+      "Id": "d732804833c04bb6b700d4a132e2a551",
+      "Inputs": [
+        {
+          "Id": "ca2ba0f025594b9abb348447e624dfaa",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "bf65525615954136b871d7b2a83a6d75",
+      "End": "6009fda6c7714ebba2a04cd1b6620fe4",
+      "Id": "10e12e1e3a5642648f1d3ff358483974"
+    },
+    {
+      "Start": "b73da657c3fd43a1aeb1004d809d4ca1",
+      "End": "ca2ba0f025594b9abb348447e624dfaa",
+      "Id": "2769235ee4044fbcb46e8024fb8ff753"
+    },
+    {
+      "Start": "e1d15d73c1ff45ba997536057da3fe44",
+      "End": "28ae0edda941470abf73b3317aa3ddb7",
+      "Id": "83127d7f56b24f99b3d5a0521335f209"
+    },
+    {
+      "Start": "e1d15d73c1ff45ba997536057da3fe44",
+      "End": "9226567de10d438db6309f5d1de7391c",
+      "Id": "4fb32ef01bf24d2693812ddaf7c8d27a"
+    },
+    {
+      "Start": "9ed803d9259c4d2b86957bbaf753cb23",
+      "End": "3c082edfcc144186b894e3034570d78f",
+      "Id": "db2ccc3e6af74a988265016c7ff92549"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.6.1.8786",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -451.35894775390625,
+      "EyeY": 545.8724365234375,
+      "EyeZ": 409.85067749023438,
+      "LookX": 446.35894775390625,
+      "LookY": -534.8724365234375,
+      "LookZ": -417.85067749023438,
+      "UpX": 0.35169726610183716,
+      "UpY": 0.87630665302276611,
+      "UpZ": -0.32923489809036255
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Curve.PointsAtEqualSegmentLength",
+        "Id": "8ad3940ebc854472a1e7af4c518682cf",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 250.0,
+        "Y": 98.6082981789737
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Curve.SplitByPoints",
+        "Id": "3573be527bc140cda214228031c84b97",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 553.960928136851,
+        "Y": 0.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "6949f82f324249899718bd436d617560",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 0.0,
+        "Y": 0.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "c653b5a31c1f42a3aa68c5d04b14dffd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 0.0,
+        "Y": 150.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "d732804833c04bb6b700d4a132e2a551",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 769.760928136851,
+        "Y": 0.0
+      }
+    ],
+    "Annotations": [],
+    "X": 103.540990354214,
+    "Y": 181.806257560013,
+    "Zoom": 0.679007436100057
+  }
+}

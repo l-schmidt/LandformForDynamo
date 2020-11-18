@@ -1,33 +1,331 @@
-<Workspace Version="0.9.0.3067" X="115.844" Y="86.564" zoom="0.8425" Name="Point.ZRange" Description="Get all Z components and the minimum and maximum Z components from a list of Points." ID="8af5ac4f-a6bb-4ae7-93a0-b6df71e9ecc4" Category="Landform.Geometry.Point">
-  <NamespaceResolutionMap>
-    <ClassMap partialName="Point" resolvedName="Autodesk.DesignScript.Geometry.Point" assemblyName="ProtoGeometry.dll" />
-  </NamespaceResolutionMap>
-  <Elements>
-    <Dynamo.Nodes.DSFunction guid="e7500b57-d374-47ec-a208-32a4f48901d4" type="Dynamo.Nodes.DSFunction" nickname="List.MinimumItem" x="462.367309115217" y="-15.5369689018238" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.List.MinimumItem@var[]" />
-    <Dynamo.Nodes.DSFunction guid="3e327d0d-221d-4be6-9984-167bdf48f792" type="Dynamo.Nodes.DSFunction" nickname="List.MaximumItem" x="474.331065983605" y="107.299703264095" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="DSCoreNodes.dll" function="DSCore.List.MaximumItem@var[]" />
-    <Dynamo.Nodes.Symbol guid="adfe8626-4c14-4433-ac8f-4f956aab7a7d" type="Dynamo.Nodes.Symbol" nickname="Input" x="12.3442136498516" y="44.6290801186944" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
-      <Symbol value="points" />
-    </Dynamo.Nodes.Symbol>
-    <Dynamo.Nodes.DSFunction guid="926f26ad-aa76-4667-bbdc-08a260b47182" type="Dynamo.Nodes.DSFunction" nickname="Point.Z" x="185.051632047478" y="42.713353115727" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Point.Z" />
-    <Dynamo.Nodes.Output guid="a09e0c97-6422-4a91-8898-bdb78683bf90" type="Dynamo.Nodes.Output" nickname="Output" x="667.425519287833" y="-55.0908011869436" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
-      <Symbol value="double" />
-    </Dynamo.Nodes.Output>
-    <Dynamo.Nodes.Output guid="5abfadbc-0a67-4149-890b-867a1c192b26" type="Dynamo.Nodes.Output" nickname="Output" x="670.274183976261" y="19.9240356083086" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
-      <Symbol value="min" />
-    </Dynamo.Nodes.Output>
-    <Dynamo.Nodes.Output guid="102b92ef-2ba1-43e3-b2e6-33f3bb8c5014" type="Dynamo.Nodes.Output" nickname="Output" x="671.223738872404" y="124.375074183976" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
-      <Symbol value="max" />
-    </Dynamo.Nodes.Output>
-  </Elements>
-  <Connectors>
-    <Dynamo.Models.ConnectorModel start="e7500b57-d374-47ec-a208-32a4f48901d4" start_index="0" end="5abfadbc-0a67-4149-890b-867a1c192b26" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="3e327d0d-221d-4be6-9984-167bdf48f792" start_index="0" end="102b92ef-2ba1-43e3-b2e6-33f3bb8c5014" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="adfe8626-4c14-4433-ac8f-4f956aab7a7d" start_index="0" end="926f26ad-aa76-4667-bbdc-08a260b47182" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="926f26ad-aa76-4667-bbdc-08a260b47182" start_index="0" end="3e327d0d-221d-4be6-9984-167bdf48f792" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="926f26ad-aa76-4667-bbdc-08a260b47182" start_index="0" end="e7500b57-d374-47ec-a208-32a4f48901d4" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="926f26ad-aa76-4667-bbdc-08a260b47182" start_index="0" end="a09e0c97-6422-4a91-8898-bdb78683bf90" end_index="0" portType="0" />
-  </Connectors>
-  <Notes />
-  <Annotations />
-  <Presets />
-</Workspace>
+{
+  "Uuid": "8af5ac4f-a6bb-4ae7-93a0-b6df71e9ecc4",
+  "IsCustomNode": true,
+  "Category": "Landform.Geometry.Point",
+  "Description": "Get all Z components and the minimum and maximum Z components from a list of Points.",
+  "Name": "Point.ZRange",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.MinimumItem@var[]",
+      "Id": "e7500b57d37447eca20832a4f48901d4",
+      "Inputs": [
+        {
+          "Id": "f94df1a63fc547429c9b8fe3279e5b93",
+          "Name": "list",
+          "Description": "List to take the minimum value from.\n\nvar[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "bd629085379942b1898926275a0a4f80",
+          "Name": "min",
+          "Description": "Minimum value from the list.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns the minimum value from a list.\n\nList.MinimumItem (list: var[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.MaximumItem@var[]",
+      "Id": "3e327d0d221d4be69984167bdf48f792",
+      "Inputs": [
+        {
+          "Id": "a4a5e5534ae347508125888ecb756d14",
+          "Name": "list",
+          "Description": "List to take the maximum value from.\n\nvar[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b619c1d9e1da4f45b192c09cd7ab5537",
+          "Name": "max",
+          "Description": "Maximum value from the list.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns the maximum value from a list.\n\nList.MaximumItem (list: var[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "points",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "adfe86264c144433ac8f4f956aab7a7d",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "cdf22049dc764867a6accdf720f18232",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.Z",
+      "Id": "926f26adaa764667bbdc08a260b47182",
+      "Inputs": [
+        {
+          "Id": "9f81cea30fa644adbd916beaae794213",
+          "Name": "point",
+          "Description": "Autodesk.DesignScript.Geometry.Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e4f582e032d54683a35f927c1e284419",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the Z component of a Point\n\nPoint.Z: double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "double",
+      "Id": "a09e0c9764224a918898bdb78683bf90",
+      "Inputs": [
+        {
+          "Id": "defde5502c8a4902829ab094c3bfe8de",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "min",
+      "Id": "5abfadbc0a674149890b867a1c192b26",
+      "Inputs": [
+        {
+          "Id": "e8609c6a2b624de9a8f28d05bc607252",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "max",
+      "Id": "102b92ef2ba143e3b2e633f3bb8c5014",
+      "Inputs": [
+        {
+          "Id": "d03bbbcac60e41e9837110c7c869e435",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "bd629085379942b1898926275a0a4f80",
+      "End": "e8609c6a2b624de9a8f28d05bc607252",
+      "Id": "c54eb37976304379bf69f64ca9a789f9"
+    },
+    {
+      "Start": "b619c1d9e1da4f45b192c09cd7ab5537",
+      "End": "d03bbbcac60e41e9837110c7c869e435",
+      "Id": "c5991507b3e9459a8feb1f75a40d4329"
+    },
+    {
+      "Start": "cdf22049dc764867a6accdf720f18232",
+      "End": "9f81cea30fa644adbd916beaae794213",
+      "Id": "13944769270a4319b39d1b5e24f2d01d"
+    },
+    {
+      "Start": "e4f582e032d54683a35f927c1e284419",
+      "End": "a4a5e5534ae347508125888ecb756d14",
+      "Id": "d396156a5ca340af9e6150ff26cedb0e"
+    },
+    {
+      "Start": "e4f582e032d54683a35f927c1e284419",
+      "End": "f94df1a63fc547429c9b8fe3279e5b93",
+      "Id": "2e01645cdb1d4fbdb342fcde9734f0dc"
+    },
+    {
+      "Start": "e4f582e032d54683a35f927c1e284419",
+      "End": "defde5502c8a4902829ab094c3bfe8de",
+      "Id": "8f0c718d7031499abaf34bebcf4e4d1f"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.6.1.8786",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 4309.37158203125,
+      "EyeY": 2161.292724609375,
+      "EyeZ": -4435.4169921875,
+      "LookX": -2074.998779296875,
+      "LookY": -1784.731201171875,
+      "LookZ": 2500.291748046875,
+      "UpX": -0.18031032383441925,
+      "UpY": 0.95931392908096313,
+      "UpZ": 0.21726684272289276
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "List.MinimumItem",
+        "Id": "e7500b57d37447eca20832a4f48901d4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 462.367309115217,
+        "Y": -15.5369689018238
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.MaximumItem",
+        "Id": "3e327d0d221d4be69984167bdf48f792",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 474.331065983605,
+        "Y": 107.299703264095
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "adfe86264c144433ac8f4f956aab7a7d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 12.3442136498516,
+        "Y": 44.6290801186944
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Point.Z",
+        "Id": "926f26adaa764667bbdc08a260b47182",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 185.051632047478,
+        "Y": 42.713353115727
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "a09e0c9764224a918898bdb78683bf90",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 667.425519287833,
+        "Y": -55.0908011869436
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "5abfadbc0a674149890b867a1c192b26",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 670.274183976261,
+        "Y": 19.9240356083086
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "102b92ef2ba143e3b2e633f3bb8c5014",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 671.223738872404,
+        "Y": 124.375074183976
+      }
+    ],
+    "Annotations": [],
+    "X": 115.844,
+    "Y": 86.564,
+    "Zoom": 0.8425
+  }
+}

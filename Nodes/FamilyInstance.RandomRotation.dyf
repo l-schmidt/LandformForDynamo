@@ -1,46 +1,351 @@
-<Workspace Version="0.9.0.3067" X="259.600104381752" Y="256.101287340577" zoom="0.65183290407521" Name="FamilyInstance.RandomRotation" Description="Rotates the angle of the family instance a random amount (between 0 and 360)." ID="9ea7f35f-375c-4fdb-8bc4-603368133d70" Category="Landform.Revit.Elements.FamilyInstance">
-  <NamespaceResolutionMap>
-    <ClassMap partialName="Math" resolvedName="DSCore.Math" assemblyName="DSCoreNodes.dll" />
-    <ClassMap partialName="FamilyInstance" resolvedName="Revit.Elements.FamilyInstance" assemblyName="RevitNodes.dll" />
-  </NamespaceResolutionMap>
-  <Elements>
-    <Dynamo.Nodes.Symbol guid="60ddb371-ca4d-49e1-af04-d06dd2357d67" type="Dynamo.Nodes.Symbol" nickname="Input" x="-311.872203987336" y="-58.2455465154288" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
-      <Symbol value="familyInstance" />
-    </Dynamo.Nodes.Symbol>
-    <Dynamo.Nodes.Output guid="80860b66-2bb5-423e-96a4-ec5a693de846" type="Dynamo.Nodes.Output" nickname="Output" x="901.980096554981" y="-57.1329884972387" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
-      <Symbol value="FamilyInstance" />
-    </Dynamo.Nodes.Output>
-    <Dynamo.Nodes.CodeBlockNodeModel guid="8a8fdc71-46a0-485c-912b-f5241e1126c1" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="158.132725980088" y="81.2648828776191" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="360;" ShouldFocus="false" />
-    <Dynamo.Nodes.DSFunction guid="8d916983-5851-49be-bc64-7c3690a56370" type="Dynamo.Nodes.DSFunction" nickname="Count" x="85.3697814288563" y="135.949849813573" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="BuiltIn" function="Count@var[]..[]" />
-    <Dynamo.Nodes.DSFunction guid="226b2e4d-c50d-419d-9def-6f49d7745cdb" type="Dynamo.Nodes.DSFunction" nickname="FamilyInstance.SetRotation" x="590.22608900109" y="-59.8816761774432" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="RevitNodes.dll" function="Revit.Elements.FamilyInstance.SetRotation@double" />
-    <Dynamo.Nodes.Function guid="4b22e5ae-4ac4-412c-9bcf-d23c224933ea" type="Dynamo.Nodes.Function" nickname="Math.RandomIntegerMin" x="336.029044896851" y="18.2675257909749" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False">
-      <ID value="8917e376-e5a9-4f35-9fbf-0b32e55c8397" />
-      <Name value="Math.RandomIntegerMin" />
-      <Description value="Creates a list of random integers between a given minimum and maximum value" />
-      <Inputs>
-        <Input value="min" />
-        <Input value="max" />
-        <Input value="amount" />
-      </Inputs>
-      <Outputs>
-        <Output value="list" />
-      </Outputs>
-    </Dynamo.Nodes.Function>
-    <Dynamo.Nodes.CodeBlockNodeModel guid="51daa526-63d1-477b-8750-69c216988724" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="168.235055549896" y="13.4023981585237" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="0;" ShouldFocus="false" />
-  </Elements>
-  <Connectors>
-    <Dynamo.Models.ConnectorModel start="60ddb371-ca4d-49e1-af04-d06dd2357d67" start_index="0" end="8d916983-5851-49be-bc64-7c3690a56370" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="60ddb371-ca4d-49e1-af04-d06dd2357d67" start_index="0" end="226b2e4d-c50d-419d-9def-6f49d7745cdb" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="8a8fdc71-46a0-485c-912b-f5241e1126c1" start_index="0" end="4b22e5ae-4ac4-412c-9bcf-d23c224933ea" end_index="1" portType="0" />
-    <Dynamo.Models.ConnectorModel start="8d916983-5851-49be-bc64-7c3690a56370" start_index="0" end="4b22e5ae-4ac4-412c-9bcf-d23c224933ea" end_index="2" portType="0" />
-    <Dynamo.Models.ConnectorModel start="226b2e4d-c50d-419d-9def-6f49d7745cdb" start_index="0" end="80860b66-2bb5-423e-96a4-ec5a693de846" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="4b22e5ae-4ac4-412c-9bcf-d23c224933ea" start_index="0" end="226b2e4d-c50d-419d-9def-6f49d7745cdb" end_index="1" portType="0" />
-    <Dynamo.Models.ConnectorModel start="51daa526-63d1-477b-8750-69c216988724" start_index="0" end="4b22e5ae-4ac4-412c-9bcf-d23c224933ea" end_index="0" portType="0" />
-  </Connectors>
-  <Notes />
-  <Annotations />
-  <Presets />
-  <Cameras>
-    <Camera Name="Background Preview" eyeX="-17" eyeY="24" eyeZ="50" lookX="12" lookY="-13" lookZ="-58" upX="0" upY="1" upZ="0" />
-  </Cameras>
-</Workspace>
+{
+  "Uuid": "9ea7f35f-375c-4fdb-8bc4-603368133d70",
+  "IsCustomNode": true,
+  "Category": "Landform.Revit.Elements.FamilyInstance",
+  "Description": "Rotates the angle of the family instance a random amount (between 0 and 360).",
+  "Name": "FamilyInstance.RandomRotation",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Math": {
+        "Key": "DSCore.Math",
+        "Value": "DSCoreNodes.dll"
+      },
+      "FamilyInstance": {
+        "Key": "Revit.Elements.FamilyInstance",
+        "Value": "RevitNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "familyInstance",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "60ddb371ca4d49e1af04d06dd2357d67",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "e14dc9b223de45c8a8700fa4aee070b0",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "FamilyInstance",
+      "Id": "80860b662bb5423e96a4ec5a693de846",
+      "Inputs": [
+        {
+          "Id": "9329755d66db4a05a2d02bf0dfd3adf8",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "360;",
+      "Id": "8a8fdc7146a0485c912bf5241e1126c1",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "6220c7a5de164c858975f9761541f1b7",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Count@var[]..[]",
+      "Id": "8d916983585149bebc647c3690a56370",
+      "Inputs": [
+        {
+          "Id": "e668794e01fb42c18423215a5fad0a29",
+          "Name": "list",
+          "Description": "List to get the item count of.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "709e0d43c25d4c25aae8d5c2a9c712bb",
+          "Name": "count",
+          "Description": "List length.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns the number of items stored in the given list.\n\nList.Count (list: var[]..[]): int"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.FamilyInstance.SetRotation@double",
+      "Id": "226b2e4dc50d419d9def6f49d7745cdb",
+      "Inputs": [
+        {
+          "Id": "75a3ca87728148749f903d9ae906a5ce",
+          "Name": "familyInstance",
+          "Description": "Revit.Elements.FamilyInstance",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9b3d85d2ab3443c29490083566e1319d",
+          "Name": "degree",
+          "Description": "The Euler angle around Z-axis.\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "51d6313e784643078ba0f3622e874e1c",
+          "Name": "FamilyInstance",
+          "Description": "The result family instance.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Set the Euler angle of the family instance around its local Z-axis.\n\nFamilyInstance.SetRotation (degree: double): FamilyInstance"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "2f1190c6-10f5-4698-a0c1-487f2fa07882",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "9789177b2ac74e4fa2dd2164f206ecee",
+      "Inputs": [
+        {
+          "Id": "b03c9ad12e8d4edb94f7fc88f28b3592",
+          "Name": "min",
+          "Description": "int\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "13940bf18d924152b190dc6f6cb34b8f",
+          "Name": "max",
+          "Description": "int",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ae4a55371bec46b595c441d14e9145ba",
+          "Name": "amount",
+          "Description": "int",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8d975306c1d44570a37c88b5f943a68c",
+          "Name": "seed",
+          "Description": "int\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a34824e154534d4993590fcf4c67f379",
+          "Name": "list",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a list of random integers between 0 and a given maximum value"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "e14dc9b223de45c8a8700fa4aee070b0",
+      "End": "e668794e01fb42c18423215a5fad0a29",
+      "Id": "c5e5eaafc6bb4ea9930d9594214b98a3"
+    },
+    {
+      "Start": "e14dc9b223de45c8a8700fa4aee070b0",
+      "End": "75a3ca87728148749f903d9ae906a5ce",
+      "Id": "ea741cdcf29a4ea18abe423d3131fb83"
+    },
+    {
+      "Start": "6220c7a5de164c858975f9761541f1b7",
+      "End": "13940bf18d924152b190dc6f6cb34b8f",
+      "Id": "27b5505329914d4c9f94743d90b44823"
+    },
+    {
+      "Start": "709e0d43c25d4c25aae8d5c2a9c712bb",
+      "End": "ae4a55371bec46b595c441d14e9145ba",
+      "Id": "f21d8435b1394594a9099605b610cf88"
+    },
+    {
+      "Start": "51d6313e784643078ba0f3622e874e1c",
+      "End": "9329755d66db4a05a2d02bf0dfd3adf8",
+      "Id": "74a351f38b73421892304eac06757f34"
+    },
+    {
+      "Start": "a34824e154534d4993590fcf4c67f379",
+      "End": "9b3d85d2ab3443c29490083566e1319d",
+      "Id": "8a300985a78c42df94e21381cfb458c1"
+    }
+  ],
+  "Dependencies": [
+    "2f1190c6-10f5-4698-a0c1-487f2fa07882"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "Clockwork for Dynamo 2.x",
+      "Version": "2.3.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "9789177b2ac74e4fa2dd2164f206ecee"
+      ]
+    }
+  ],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.6.1.8786",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -227.63159341979735,
+      "EyeY": 107.90373157009805,
+      "EyeZ": 851.81908802919554,
+      "LookX": 487.47641468481629,
+      "LookY": -177.84751983964128,
+      "LookZ": -566.9563649833691,
+      "UpX": 0.011378231217049185,
+      "UpY": 0.99984769515639771,
+      "UpZ": -0.013233379947069048
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "60ddb371ca4d49e1af04d06dd2357d67",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -311.872203987336,
+        "Y": -58.2455465154288
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "80860b662bb5423e96a4ec5a693de846",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 901.980096554981,
+        "Y": -57.1329884972387
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "8a8fdc7146a0485c912bf5241e1126c1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 158.132725980088,
+        "Y": 81.2648828776191
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.Count",
+        "Id": "8d916983585149bebc647c3690a56370",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 85.3697814288563,
+        "Y": 135.949849813573
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "FamilyInstance.SetRotation",
+        "Id": "226b2e4dc50d419d9def6f49d7745cdb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 590.22608900109,
+        "Y": -59.8816761774432
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "RandomList.AsIntegers",
+        "Id": "9789177b2ac74e4fa2dd2164f206ecee",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 339.83470784846259,
+        "Y": 40.898918011511284
+      }
+    ],
+    "Annotations": [],
+    "X": 278.81803028960087,
+    "Y": 308.83934499422196,
+    "Zoom": 0.85916433567524031
+  }
+}

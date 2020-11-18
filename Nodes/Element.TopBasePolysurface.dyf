@@ -1,40 +1,356 @@
-<Workspace Version="0.9.2.4472" X="196.514533015612" Y="76.2066177749633" zoom="0.822695359375" Name="Element.TopBasePolysurface" Description="Get the top and bottom polysurfaces from an element." ID="accb902e-183c-40ae-bbde-3c5c0c5a244d" Category="Landform.Revit.Elements">
-  <NamespaceResolutionMap />
-  <Elements>
-    <Dynamo.Graph.Nodes.CustomNodes.Function guid="4c88575e-ff41-4b49-afde-ebb63be5b940" type="Dynamo.Graph.Nodes.CustomNodes.Function" nickname="Surfaces.TopBasePolysurface" x="707.6" y="280.8" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false">
-      <ID value="5429c97b-7af9-492a-97b2-f9e94098d9ca" />
-      <Name value="Surfaces.TopBasePolysurface" />
-      <Description value="Get the top and bottom polysurfaces from a set of surfaces." />
-      <Inputs>
-        <Input value="surfaces" />
-      </Inputs>
-      <Outputs>
-        <Output value="PolySurfaceTop" />
-        <Output value="PolySurfaceBase" />
-      </Outputs>
-    </Dynamo.Graph.Nodes.CustomNodes.Function>
-    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="3a90db34-82cb-444b-914e-c18089884c69" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Element.Geometry" x="42.0000000000001" y="284" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" assembly="RevitNodes.dll" function="Revit.Elements.Element.Geometry" />
-    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="dab65c2c-d697-4bdf-bd80-314745f49ff1" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Element.Faces" x="241.2" y="286.4" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" assembly="RevitNodes.dll" function="Revit.Elements.Element.Faces" />
-    <Dynamo.Graph.Nodes.ZeroTouch.DSFunction guid="64caff70-311c-4f7d-838a-32cdc11889ab" type="Dynamo.Graph.Nodes.ZeroTouch.DSFunction" nickname="Face.SurfaceGeometry" x="484.4" y="288" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Face.SurfaceGeometry" />
-    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="da9d8a82-0a72-45fd-9135-d8b49de323d5" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="-142.032284068227" y="295.441819972022" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false">
-      <Symbol value="element" />
-    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
-    <Dynamo.Graph.Nodes.CustomNodes.Output guid="39f4323c-4ef7-4138-9da8-ed81bfc58f4d" type="Dynamo.Graph.Nodes.CustomNodes.Output" nickname="Output" x="1020.97415458104" y="276.965965177427" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false">
-      <Symbol value="PolySurfaceTop" />
-    </Dynamo.Graph.Nodes.CustomNodes.Output>
-    <Dynamo.Graph.Nodes.CustomNodes.Output guid="c9cd7957-e5a9-43a5-9d38-5e3a15e9169b" type="Dynamo.Graph.Nodes.CustomNodes.Output" nickname="Output" x="1020.97415458104" y="367.40041232992" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false">
-      <Symbol value="PolySurfaceBase" />
-    </Dynamo.Graph.Nodes.CustomNodes.Output>
-  </Elements>
-  <Connectors>
-    <Dynamo.Graph.Connectors.ConnectorModel start="4c88575e-ff41-4b49-afde-ebb63be5b940" start_index="0" end="39f4323c-4ef7-4138-9da8-ed81bfc58f4d" end_index="0" portType="0" />
-    <Dynamo.Graph.Connectors.ConnectorModel start="4c88575e-ff41-4b49-afde-ebb63be5b940" start_index="1" end="c9cd7957-e5a9-43a5-9d38-5e3a15e9169b" end_index="0" portType="0" />
-    <Dynamo.Graph.Connectors.ConnectorModel start="3a90db34-82cb-444b-914e-c18089884c69" start_index="0" end="dab65c2c-d697-4bdf-bd80-314745f49ff1" end_index="0" portType="0" />
-    <Dynamo.Graph.Connectors.ConnectorModel start="dab65c2c-d697-4bdf-bd80-314745f49ff1" start_index="0" end="64caff70-311c-4f7d-838a-32cdc11889ab" end_index="0" portType="0" />
-    <Dynamo.Graph.Connectors.ConnectorModel start="64caff70-311c-4f7d-838a-32cdc11889ab" start_index="0" end="4c88575e-ff41-4b49-afde-ebb63be5b940" end_index="0" portType="0" />
-    <Dynamo.Graph.Connectors.ConnectorModel start="da9d8a82-0a72-45fd-9135-d8b49de323d5" start_index="0" end="3a90db34-82cb-444b-914e-c18089884c69" end_index="0" portType="0" />
-  </Connectors>
-  <Notes />
-  <Annotations />
-  <Presets />
-</Workspace>
+{
+  "Uuid": "accb902e-183c-40ae-bbde-3c5c0c5a244d",
+  "IsCustomNode": true,
+  "Category": "Landform.Revit.Elements",
+  "Description": "Get the top and bottom polysurfaces from an element.",
+  "Name": "Element.TopBasePolysurface",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "5429c97b-7af9-492a-97b2-f9e94098d9ca",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "4c88575eff414b49afdeebb63be5b940",
+      "Inputs": [
+        {
+          "Id": "d818bf817e6b484b8f8e8fdfdb91129e",
+          "Name": "surfaces",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "80e69d555a864c7490cbe6098fc75c72",
+          "Name": "PolySurfaceTop",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "34076660a29d44168d063e6e4051136b",
+          "Name": "PolySurfaceBase",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the top and bottom polysurfaces from a set of surfaces."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.Geometry",
+      "Id": "3a90db3482cb444b914ec18089884c69",
+      "Inputs": [
+        {
+          "Id": "5af4973644784d658411e46ad115624d",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3b2c30b86edc4a38a520665d32a95459",
+          "Name": "var[]",
+          "Description": "var[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get all of the Geometry associated with this object\n\nElement.Geometry ( ): var[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.Faces",
+      "Id": "dab65c2cd6974bdfbd80314745f49ff1",
+      "Inputs": [
+        {
+          "Id": "efd64e81068540148cd1ac1d907ef749",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "23a80be109764674a756c8420283db70",
+          "Name": "Surface[]",
+          "Description": "Surface[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The Faces in this Element\n\nElement.Faces: Surface[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Face.SurfaceGeometry",
+      "Id": "64caff70311c4f7d838a32cdc11889ab",
+      "Inputs": [
+        {
+          "Id": "e636a9eb7c8b43618b899a253d00dd63",
+          "Name": "face",
+          "Description": "Autodesk.DesignScript.Geometry.Face",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c4832af55c6946caae9803d82dae2154",
+          "Name": "Surface",
+          "Description": "Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The underlying Surface making up the Face\n\nFace.SurfaceGeometry ( ): Surface"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "element",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "da9d8a820a7245fd9135d8b49de323d5",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7af92b9d2abb43a7a92cdc6b166ab10e",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "PolySurfaceTop",
+      "Id": "39f4323c4ef741389da8ed81bfc58f4d",
+      "Inputs": [
+        {
+          "Id": "fc2817fd428647c398f48ea42e18a20e",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "PolySurfaceBase",
+      "Id": "c9cd7957e5a943a59d385e3a15e9169b",
+      "Inputs": [
+        {
+          "Id": "6624c9734bc941758793e5332bf5e153",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "80e69d555a864c7490cbe6098fc75c72",
+      "End": "fc2817fd428647c398f48ea42e18a20e",
+      "Id": "d22dcf1df4bc40b0bf2e02f798b4b89a"
+    },
+    {
+      "Start": "34076660a29d44168d063e6e4051136b",
+      "End": "6624c9734bc941758793e5332bf5e153",
+      "Id": "0b200316560147fdb796e1b0f1347c62"
+    },
+    {
+      "Start": "3b2c30b86edc4a38a520665d32a95459",
+      "End": "efd64e81068540148cd1ac1d907ef749",
+      "Id": "dba4f18c5dac4f5c8715d0feea7d8ab5"
+    },
+    {
+      "Start": "23a80be109764674a756c8420283db70",
+      "End": "e636a9eb7c8b43618b899a253d00dd63",
+      "Id": "7e5006ef088b474e947154b894bf4689"
+    },
+    {
+      "Start": "c4832af55c6946caae9803d82dae2154",
+      "End": "d818bf817e6b484b8f8e8fdfdb91129e",
+      "Id": "40e3d2c0740b4e02ad206bb3586925a3"
+    },
+    {
+      "Start": "7af92b9d2abb43a7a92cdc6b166ab10e",
+      "End": "5af4973644784d658411e46ad115624d",
+      "Id": "c2c451d32bf14d01bdfc2f47e1145efd"
+    }
+  ],
+  "Dependencies": [
+    "5429c97b-7af9-492a-97b2-f9e94098d9ca"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "Landform",
+      "Version": "2016.10.13",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "4c88575eff414b49afdeebb63be5b940"
+      ]
+    }
+  ],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.6.1.8786",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -451.35894775390625,
+      "EyeY": 545.8724365234375,
+      "EyeZ": 409.85067749023438,
+      "LookX": 446.35894775390625,
+      "LookY": -534.8724365234375,
+      "LookZ": -417.85067749023438,
+      "UpX": 0.35169726610183716,
+      "UpY": 0.87630665302276611,
+      "UpZ": -0.32923489809036255
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Surfaces.TopBasePolysurface",
+        "Id": "4c88575eff414b49afdeebb63be5b940",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 707.6,
+        "Y": 280.8
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.Geometry",
+        "Id": "3a90db3482cb444b914ec18089884c69",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 42.0000000000001,
+        "Y": 284.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.Faces",
+        "Id": "dab65c2cd6974bdfbd80314745f49ff1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 241.2,
+        "Y": 286.4
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Face.SurfaceGeometry",
+        "Id": "64caff70311c4f7d838a32cdc11889ab",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 484.4,
+        "Y": 288.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "da9d8a820a7245fd9135d8b49de323d5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -142.032284068227,
+        "Y": 295.441819972022
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "39f4323c4ef741389da8ed81bfc58f4d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1020.97415458104,
+        "Y": 276.965965177427
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "c9cd7957e5a943a59d385e3a15e9169b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1020.97415458104,
+        "Y": 367.40041232992
+      }
+    ],
+    "Annotations": [],
+    "X": 196.514533015612,
+    "Y": 76.2066177749633,
+    "Zoom": 0.822695359375
+  }
+}

@@ -1,0 +1,629 @@
+{
+  "Uuid": "006bd4b1-69bf-44a5-9773-f7e7a0869234",
+  "IsCustomNode": true,
+  "Category": "Landform.Geometry.Point",
+  "Description": "Creates the specified amount of random points within a set boundary curves. Tolerance specifies the minimum distance between points.",
+  "Name": "Point.RandomActual",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Vector": {
+        "Key": "Autodesk.DesignScript.Geometry.Vector",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Surface": {
+        "Key": "Autodesk.DesignScript.Geometry.Surface",
+        "Value": "ProtoGeometry.dll"
+      },
+      "PolySurface": {
+        "Key": "Autodesk.DesignScript.Geometry.PolySurface",
+        "Value": "ProtoGeometry.dll"
+      },
+      "FamilyInstance.ByPoint": {
+        "Key": "Revit.Elements.FamilyInstance",
+        "Value": "RevitNodes.dll"
+      },
+      "Math": {
+        "Key": "DSCore.Math",
+        "Value": "DSCoreNodes.dll"
+      },
+      "List": {
+        "Key": "DSCore.List",
+        "Value": "DSCoreNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "b9274aba-a676-4d34-882d-993f0ebfc0a5",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "ac0b4ef1189a49918f6788881ddd4914",
+      "Inputs": [
+        {
+          "Id": "b57a4988a3b0459299a06aa80cdbdf8c",
+          "Name": "amount",
+          "Description": "int",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6e1ba557e4ad4cbaa909e9c7b3d921fb",
+          "Name": "curves",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "af25cf8bf69845ba966c63d3e5430749",
+          "Name": "tolerance",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7329ffe5d01c49499500e8c7feaabf83",
+          "Name": "Points",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a random set of points within a set of boundary cuves. Tolerance specifies the minimum distance between points."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Count@var[]..[]",
+      "Id": "79694b53d3b548bf8074feb7dc70ecb3",
+      "Inputs": [
+        {
+          "Id": "a3d4e157c3674b069578c1f7da3e5706",
+          "Name": "list",
+          "Description": "List to get the item count of.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "19b86048917c45ee8e9471440d8737ad",
+          "Name": "count",
+          "Description": "List length.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns the number of items stored in the given list.\n\nList.Count (list: var[]..[]): int"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "amt/ct*amt*2;",
+      "Id": "2bb36c19a5bf4cdba935c3b4a95871ce",
+      "Inputs": [
+        {
+          "Id": "9abbfc45da5143d286985b27ea5e71e1",
+          "Name": "amt",
+          "Description": "amt",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "21d325ba38494053a735099a67d7e04f",
+          "Name": "ct",
+          "Description": "ct",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9df369a00eeb4e978da120c1d0d2d949",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.Math.Round@double",
+      "Id": "74028d73f02b434ea56985a81232d5f7",
+      "Inputs": [
+        {
+          "Id": "3a9d55a2c32f4238a5242cdd2701f3b8",
+          "Name": "number",
+          "Description": "Number to round.\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b08ce21f9fa8492da252b41d2d669cd7",
+          "Name": "number",
+          "Description": "Integral value closes to the number.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Rounds a number to the closest integral value. Note that this method returns a double-precision floating-point number instead of an integral type.\n\nMath.Round (number: double): double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "b9274aba-a676-4d34-882d-993f0ebfc0a5",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "a04db12429ff436abc0204abf2a1c852",
+      "Inputs": [
+        {
+          "Id": "96e5738ba9384225bef3ad7134daab86",
+          "Name": "amount",
+          "Description": "int",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1989746daf7a424abf67c71ae3c6f0fc",
+          "Name": "curves",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ad77b99ae3884c01ba20afc3e40b6021",
+          "Name": "tolerance",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "12b2de206875463aad467777d9c2b3c2",
+          "Name": "Points",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a random set of points within a set of boundary cuves. Tolerance specifies the minimum distance between points."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.TakeItems@var[]..[],int",
+      "Id": "9fcc9d22a8f6442cbb9dbffc521aa4a6",
+      "Inputs": [
+        {
+          "Id": "f33b1ea1b90d45d9b0f2c0e5e7009df1",
+          "Name": "list",
+          "Description": "List to take from.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d9c52cb4cc6947d88d6289594c745092",
+          "Name": "amount",
+          "Description": "Amount of items to take. If negative, items are taken from the end of the list.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ceb8d14a915f4d4683507ea198ee9fbe",
+          "Name": "list",
+          "Description": "List of extracted items.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Fetches an amount of items from the start of the list.\n\nList.TakeItems (list: var[]..[], amount: int): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "amount",
+        "TypeName": "int",
+        "TypeRank": 0,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "b78df5950657489d8fd81f370510afd6",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "6817de733f194235a654a706c11efbcd",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "curves",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "cb51e35fb5de4ef8aa47f977800dc088",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "26ad9557303d4fe6b1d0131755d8bc5a",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "tolerance",
+        "TypeName": "double",
+        "TypeRank": 0,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "21663217116c44a6a9b9b9625242d088",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "6625c7a229204584aa514e46092f840a",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "Points",
+      "Id": "c9bfb0a6ad4649d08cbcc3fb36c84c6f",
+      "Inputs": [
+        {
+          "Id": "ebf489ff0f3e49fc9fb943256ea7ff65",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Shuffle@var[]..[]",
+      "Id": "b9fbbff74c6347f6823484463534494f",
+      "Inputs": [
+        {
+          "Id": "2bc53edab1a648c5aaa20068343e5788",
+          "Name": "list",
+          "Description": "List to shuffle.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "774e3ed6265d4485b2bf97da81818d82",
+          "Name": "list",
+          "Description": "Randomized list.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Shuffles a list, randomizing the order of its items.\n\nList.Shuffle (list: var[]..[]): var[]..[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "7329ffe5d01c49499500e8c7feaabf83",
+      "End": "a3d4e157c3674b069578c1f7da3e5706",
+      "Id": "4ddedb96c25c46f3a650e6f26dd1058e"
+    },
+    {
+      "Start": "19b86048917c45ee8e9471440d8737ad",
+      "End": "21d325ba38494053a735099a67d7e04f",
+      "Id": "651bbe58a6d8476bbb13b62280b78428"
+    },
+    {
+      "Start": "9df369a00eeb4e978da120c1d0d2d949",
+      "End": "3a9d55a2c32f4238a5242cdd2701f3b8",
+      "Id": "5be9d2a0b2a7463eaaf03a7684bd6fe8"
+    },
+    {
+      "Start": "b08ce21f9fa8492da252b41d2d669cd7",
+      "End": "96e5738ba9384225bef3ad7134daab86",
+      "Id": "76daeddf70d3484f9294940f3705931a"
+    },
+    {
+      "Start": "12b2de206875463aad467777d9c2b3c2",
+      "End": "2bc53edab1a648c5aaa20068343e5788",
+      "Id": "9a2719030a474c1094f919bf764406ac"
+    },
+    {
+      "Start": "ceb8d14a915f4d4683507ea198ee9fbe",
+      "End": "ebf489ff0f3e49fc9fb943256ea7ff65",
+      "Id": "802387b993df42d58184d9dd67203731"
+    },
+    {
+      "Start": "6817de733f194235a654a706c11efbcd",
+      "End": "b57a4988a3b0459299a06aa80cdbdf8c",
+      "Id": "0eecd50892ca4949aa0c12d79966d3cd"
+    },
+    {
+      "Start": "6817de733f194235a654a706c11efbcd",
+      "End": "d9c52cb4cc6947d88d6289594c745092",
+      "Id": "2ef376956d9b4fa48a86d86bb64ab805"
+    },
+    {
+      "Start": "6817de733f194235a654a706c11efbcd",
+      "End": "9abbfc45da5143d286985b27ea5e71e1",
+      "Id": "08867f27afa64f829e20482504e608b2"
+    },
+    {
+      "Start": "26ad9557303d4fe6b1d0131755d8bc5a",
+      "End": "6e1ba557e4ad4cbaa909e9c7b3d921fb",
+      "Id": "df2b4e6e6a174c649309df790aa3a5a9"
+    },
+    {
+      "Start": "26ad9557303d4fe6b1d0131755d8bc5a",
+      "End": "1989746daf7a424abf67c71ae3c6f0fc",
+      "Id": "a424acab626d446481e448f7da6f5411"
+    },
+    {
+      "Start": "6625c7a229204584aa514e46092f840a",
+      "End": "af25cf8bf69845ba966c63d3e5430749",
+      "Id": "6fa2768cedb94bbc82239027d6cd39bf"
+    },
+    {
+      "Start": "6625c7a229204584aa514e46092f840a",
+      "End": "ad77b99ae3884c01ba20afc3e40b6021",
+      "Id": "ee283dd826f9413291d1ff352a24af20"
+    },
+    {
+      "Start": "774e3ed6265d4485b2bf97da81818d82",
+      "End": "f33b1ea1b90d45d9b0f2c0e5e7009df1",
+      "Id": "13892121a4f641919e45db72c89aacf4"
+    }
+  ],
+  "Dependencies": [
+    "b9274aba-a676-4d34-882d-993f0ebfc0a5"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "Landform",
+      "Version": "2016.10.13",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "ac0b4ef1189a49918f6788881ddd4914",
+        "a04db12429ff436abc0204abf2a1c852"
+      ]
+    }
+  ],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.6.1.8786",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -383.067396656776,
+      "EyeY": 224.10374581757708,
+      "EyeZ": 294.97754689715924,
+      "LookX": 188.08350329340729,
+      "LookY": -225.05323092871203,
+      "LookZ": -278.95688468602617,
+      "UpX": 0.20398039563325457,
+      "UpY": 0.93105581351771227,
+      "UpZ": -0.30253442647478129
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Point.Random",
+        "Id": "ac0b4ef1189a49918f6788881ddd4914",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 271.557272412425,
+        "Y": 101.5885940677
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.Count",
+        "Id": "79694b53d3b548bf8074feb7dc70ecb3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 512.68092952484176,
+        "Y": 78.432497436174017
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "2bb36c19a5bf4cdba935c3b4a95871ce",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 696.37804626474383,
+        "Y": -10.978255325747453
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Math.Round",
+        "Id": "74028d73f02b434ea56985a81232d5f7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 932.905950999749,
+        "Y": 52.8914340049216
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Point.Random",
+        "Id": "a04db12429ff436abc0204abf2a1c852",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1200.24369346883,
+        "Y": 136.962733460664
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.TakeItems",
+        "Id": "9fcc9d22a8f6442cbb9dbffc521aa4a6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1662.0338116767693,
+        "Y": 305.57932687802816
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "b78df5950657489d8fd81f370510afd6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 0.0,
+        "Y": 0.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "cb51e35fb5de4ef8aa47f977800dc088",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 0.0,
+        "Y": 150.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "21663217116c44a6a9b9b9625242d088",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 0.0,
+        "Y": 300.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "c9bfb0a6ad4649d08cbcc3fb36c84c6f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1874.3613261179798,
+        "Y": 149.82448902342708
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.Shuffle",
+        "Id": "b9fbbff74c6347f6823484463534494f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1470.1752586031314,
+        "Y": 177.49160011662951
+      }
+    ],
+    "Annotations": [],
+    "X": 46.357183222338151,
+    "Y": 387.45011262170772,
+    "Zoom": 0.61610714732743088
+  }
+}

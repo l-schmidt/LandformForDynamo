@@ -1,33 +1,281 @@
-<Workspace Version="0.9.0.3067" X="56.5251662348697" Y="133.995163097128" zoom="0.784369328044827" Name="Curve.MidPoint" Description="Get the midpoint along the Curve" ID="17905fee-de0e-4722-9319-1785ecf384f3" Category="Landform.Geometry.Curve">
-  <NamespaceResolutionMap>
-    <ClassMap partialName="Point" resolvedName="Autodesk.DesignScript.Geometry.Point" assemblyName="ProtoGeometry.dll" />
-    <ClassMap partialName="List" resolvedName="DSCore.List" assemblyName="DSCoreNodes.dll" />
-    <ClassMap partialName="List.Create" resolvedName="DSCore.List" assemblyName="DSCoreNodes.dll" />
-  </NamespaceResolutionMap>
-  <Elements>
-    <Dynamo.Nodes.DSFunction guid="0074857b-5e21-4d04-b63e-db3ad3868fae" type="Dynamo.Nodes.DSFunction" nickname="Curve.PointAtDistance" x="588.682559692887" y="0" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Curve.PointAtDistance@double">
-      <PortInfo index="1" default="True" />
-    </Dynamo.Nodes.DSFunction>
-    <Dynamo.Nodes.CodeBlockNodeModel guid="ba81e566-71ff-4ab6-89fb-449291cfbf06" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="419.264716077608" y="62.6318038741693" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" CodeText="x/2;" ShouldFocus="false" />
-    <Dynamo.Nodes.DSFunction guid="370da064-47d6-49a3-810b-5f9b9970b0cf" type="Dynamo.Nodes.DSFunction" nickname="Curve.Length" x="224.501807649907" y="62.7716879258595" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="ProtoGeometry.dll" function="Autodesk.DesignScript.Geometry.Curve.Length" />
-    <Dynamo.Nodes.Symbol guid="2cfb2bca-3e59-469e-9572-3775e66f3066" type="Dynamo.Nodes.Symbol" nickname="Input" x="0" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True">
-      <Symbol value="curve" />
-    </Dynamo.Nodes.Symbol>
-    <Dynamo.Nodes.Output guid="b456150c-65a4-45ca-82f0-b6dd8a600f56" type="Dynamo.Nodes.Output" nickname="Output" x="814.882559692887" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False">
-      <Symbol value="Point" />
-    </Dynamo.Nodes.Output>
-  </Elements>
-  <Connectors>
-    <Dynamo.Models.ConnectorModel start="0074857b-5e21-4d04-b63e-db3ad3868fae" start_index="0" end="b456150c-65a4-45ca-82f0-b6dd8a600f56" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="ba81e566-71ff-4ab6-89fb-449291cfbf06" start_index="0" end="0074857b-5e21-4d04-b63e-db3ad3868fae" end_index="1" portType="0" />
-    <Dynamo.Models.ConnectorModel start="370da064-47d6-49a3-810b-5f9b9970b0cf" start_index="0" end="ba81e566-71ff-4ab6-89fb-449291cfbf06" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="2cfb2bca-3e59-469e-9572-3775e66f3066" start_index="0" end="0074857b-5e21-4d04-b63e-db3ad3868fae" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="2cfb2bca-3e59-469e-9572-3775e66f3066" start_index="0" end="370da064-47d6-49a3-810b-5f9b9970b0cf" end_index="0" portType="0" />
-  </Connectors>
-  <Notes />
-  <Annotations />
-  <Presets />
-  <Cameras>
-    <Camera Name="Background Preview" eyeX="-28.8392467498779" eyeY="79.0925903320313" eyeZ="-19.9677429199219" lookX="0.000919624872040004" lookY="-5.0539345741272" lookZ="-0.107669033110142" upX="0.00830153468996286" upY="0.235142096877098" upZ="-0.971925556659698" />
-  </Cameras>
-</Workspace>
+{
+  "Uuid": "17905fee-de0e-4722-9319-1785ecf384f3",
+  "IsCustomNode": true,
+  "Category": "Landform.Geometry.Curve",
+  "Description": "Get the midpoint along the Curve",
+  "Name": "Curve.MidPoint",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      },
+      "List": {
+        "Key": "DSCore.List",
+        "Value": "DSCoreNodes.dll"
+      },
+      "List.Create": {
+        "Key": "DSCore.List",
+        "Value": "DSCoreNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Curve.PointAtSegmentLength@double",
+      "Id": "0074857b5e214d04b63edb3ad3868fae",
+      "Inputs": [
+        {
+          "Id": "1e90c84f671f4097b368d093ff013262",
+          "Name": "curve",
+          "Description": "Autodesk.DesignScript.Geometry.Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3bf2d906fa6a40e3a10e090acdee30ad",
+          "Name": "segmentLength",
+          "Description": "The distance along the curve at which to evaluate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ac1c7a7d9e014513bfb325eb82640f42",
+          "Name": "Point",
+          "Description": "The point at the given arc length",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get a Point at a particular arc length along the curve\n\nCurve.PointAtSegmentLength (segmentLength: double = 0): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "x/2;",
+      "Id": "ba81e56671ff4ab689fb449291cfbf06",
+      "Inputs": [
+        {
+          "Id": "42b8cb0271d64b3fa1f08d91a93257df",
+          "Name": "x",
+          "Description": "x",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1625ec321fbd48a6929dc87757d4e379",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Curve.Length",
+      "Id": "370da06447d649a3810b5f9b9970b0cf",
+      "Inputs": [
+        {
+          "Id": "cddf96992b54442cb04236985da8def1",
+          "Name": "curve",
+          "Description": "Autodesk.DesignScript.Geometry.Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "00e188626ae749579479f80eea5ce77b",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The total arc length of the curve\n\nCurve.Length: double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "curve",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "2cfb2bca3e59469e95723775e66f3066",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "384a4ed46aeb4f4bacd771bb1da07cdf",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "Point",
+      "Id": "b456150c65a445ca82f0b6dd8a600f56",
+      "Inputs": [
+        {
+          "Id": "59ca57324b7e4adab20c1b985d93635c",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "ac1c7a7d9e014513bfb325eb82640f42",
+      "End": "59ca57324b7e4adab20c1b985d93635c",
+      "Id": "07081893ae05455da1491a855d82243c"
+    },
+    {
+      "Start": "1625ec321fbd48a6929dc87757d4e379",
+      "End": "3bf2d906fa6a40e3a10e090acdee30ad",
+      "Id": "1ce0bf69baa6428785ab2e4221747148"
+    },
+    {
+      "Start": "00e188626ae749579479f80eea5ce77b",
+      "End": "42b8cb0271d64b3fa1f08d91a93257df",
+      "Id": "f06afe7af87942bcbcc6a7edb541f0b6"
+    },
+    {
+      "Start": "384a4ed46aeb4f4bacd771bb1da07cdf",
+      "End": "1e90c84f671f4097b368d093ff013262",
+      "Id": "c203265f2f714d0ead58703b059bd6f3"
+    },
+    {
+      "Start": "384a4ed46aeb4f4bacd771bb1da07cdf",
+      "End": "cddf96992b54442cb04236985da8def1",
+      "Id": "6c00069fb55945fab2b4c543bb35d75d"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.6.1.8786",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -28.83924674987793,
+      "EyeY": 79.09259033203125,
+      "EyeZ": -19.967742919921875,
+      "LookX": 0.00091962487204000354,
+      "LookY": -5.0539345741271973,
+      "LookZ": -0.10766903311014175,
+      "UpX": 0.0083015346899628639,
+      "UpY": 0.23514209687709808,
+      "UpZ": -0.97192555665969849
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Curve.PointAtSegmentLength",
+        "Id": "0074857b5e214d04b63edb3ad3868fae",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 588.682559692887,
+        "Y": 0.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "ba81e56671ff4ab689fb449291cfbf06",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 419.264716077608,
+        "Y": 62.6318038741693
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Curve.Length",
+        "Id": "370da06447d649a3810b5f9b9970b0cf",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 224.501807649907,
+        "Y": 62.7716879258595
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "2cfb2bca3e59469e95723775e66f3066",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 0.0,
+        "Y": 0.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "b456150c65a445ca82f0b6dd8a600f56",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 814.882559692887,
+        "Y": 0.0
+      }
+    ],
+    "Annotations": [],
+    "X": 56.5251662348697,
+    "Y": 133.995163097128,
+    "Zoom": 0.784369328044827
+  }
+}

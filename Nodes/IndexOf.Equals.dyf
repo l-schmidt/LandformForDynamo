@@ -1,36 +1,260 @@
-<Workspace Version="0.9.2.4472" X="194" Y="116" zoom="1" Name="IndexOf.Equals" Description="Returns the indices of items in list B that are equal to items in list A." ID="56a8d5b1-ffef-4388-997d-0e8adf915608" Category="Landform.Core.List">
-  <NamespaceResolutionMap />
-  <Elements>
-    <CoreNodeModels.CreateList guid="ff753908-6de8-4d55-939e-9a0f669b078c" type="CoreNodeModels.CreateList" nickname="Create List" x="250" y="0.333333333330074" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" inputcount="2" />
-    <PythonNodeModels.PythonNode guid="fec5a7b2-2926-4e4e-ba95-0eb9066cc9d5" type="PythonNodeModels.PythonNode" nickname="Python Script" x="398.666666666666" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" inputcount="1">
-      <Script>listaA = IN[0][0]
-listaB = IN[0][1]
-indiceslist = list()
-for lA in listaA:
-	counter = 0
-	for lB in listaB:
-		if (lA == lB):
-			indiceslist.append(counter)
-		counter += 1
-OUT = indiceslist</Script>
-    </PythonNodeModels.PythonNode>
-    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="a3ae4422-bc97-4b35-bffd-96df5d35368c" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="0" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false">
-      <Symbol value="listA" />
-    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
-    <Dynamo.Graph.Nodes.CustomNodes.Symbol guid="44777d05-f6f5-4251-876a-510db02e36a7" type="Dynamo.Graph.Nodes.CustomNodes.Symbol" nickname="Input" x="0" y="150" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false">
-      <Symbol value="listB" />
-    </Dynamo.Graph.Nodes.CustomNodes.Symbol>
-    <Dynamo.Graph.Nodes.CustomNodes.Output guid="b4f1e6d3-e8a2-4aed-8daa-8551855f1280" type="Dynamo.Graph.Nodes.CustomNodes.Output" nickname="Output" x="606" y="2" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false">
-      <Symbol value="Index" />
-    </Dynamo.Graph.Nodes.CustomNodes.Output>
-  </Elements>
-  <Connectors>
-    <Dynamo.Graph.Connectors.ConnectorModel start="ff753908-6de8-4d55-939e-9a0f669b078c" start_index="0" end="fec5a7b2-2926-4e4e-ba95-0eb9066cc9d5" end_index="0" portType="0" />
-    <Dynamo.Graph.Connectors.ConnectorModel start="fec5a7b2-2926-4e4e-ba95-0eb9066cc9d5" start_index="0" end="b4f1e6d3-e8a2-4aed-8daa-8551855f1280" end_index="0" portType="0" />
-    <Dynamo.Graph.Connectors.ConnectorModel start="a3ae4422-bc97-4b35-bffd-96df5d35368c" start_index="0" end="ff753908-6de8-4d55-939e-9a0f669b078c" end_index="0" portType="0" />
-    <Dynamo.Graph.Connectors.ConnectorModel start="44777d05-f6f5-4251-876a-510db02e36a7" start_index="0" end="ff753908-6de8-4d55-939e-9a0f669b078c" end_index="1" portType="0" />
-  </Connectors>
-  <Notes />
-  <Annotations />
-  <Presets />
-</Workspace>
+{
+  "Uuid": "56a8d5b1-ffef-4388-997d-0e8adf915608",
+  "IsCustomNode": true,
+  "Category": "Landform.Core.List",
+  "Description": "Returns the indices of items in list B that are equal to items in list A.",
+  "Name": "IndexOf.Equals",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "listaA = IN[0][0]\nlistaB = IN[0][1]\nindiceslist = list()\nfor lA in listaA:\n\tcounter = 0\n\tfor lB in listaB:\n\t\tif (lA == lB):\n\t\t\tindiceslist.append(counter)\n\t\tcounter += 1\nOUT = indiceslist",
+      "VariableInputPorts": true,
+      "Id": "fec5a7b229264e4eba950eb9066cc9d5",
+      "Inputs": [
+        {
+          "Id": "9bd79e2ce3624e79aaf8f0345ee71505",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d56255b2a0e4480a8d26296f51d7a8a4",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "listA",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "a3ae4422bc974b35bffd96df5d35368c",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9e482938063c4fcbb615fbf31c2b4691",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Symbol, DynamoCore",
+      "NodeType": "InputNode",
+      "Parameter": {
+        "Name": "listB",
+        "TypeName": "var",
+        "TypeRank": -1,
+        "DefaultValue": null,
+        "Description": ""
+      },
+      "Id": "44777d05f6f54251876a510db02e36a7",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "cd0817ff5ba1421cbf6c86686cdcfdba",
+          "Name": "",
+          "Description": "Symbol",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A function parameter, use with custom nodes.\r\n\r\nYou can specify the type and default value for parameter. E.g.,\r\n\r\ninput : var[]..[]\r\nvalue : bool = false"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Output, DynamoCore",
+      "NodeType": "OutputNode",
+      "ElementResolver": null,
+      "Symbol": "Index",
+      "Id": "b4f1e6d3e8a24aed8daa8551855f1280",
+      "Inputs": [
+        {
+          "Id": "e6d2633b59944111aed4e49bc54a5bc8",
+          "Name": "",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [],
+      "Replication": "Disabled",
+      "Description": "A function output, use with custom nodes"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.CreateList, CoreNodeModels",
+      "VariableInputPorts": true,
+      "NodeType": "ExtensionNode",
+      "Id": "db6be9113ec04128b3f43259bc427083",
+      "Inputs": [
+        {
+          "Id": "85cdd0da3e134b5397dd0a1de2ccd0f7",
+          "Name": "item0",
+          "Description": "Item Index #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a9d2df80660840f0b90a4b5e71127840",
+          "Name": "item1",
+          "Description": "Item Index #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e5fa65d73f2f4220974ed42e04e6a595",
+          "Name": "list",
+          "Description": "A list",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Makes a new list out of the given inputs"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "d56255b2a0e4480a8d26296f51d7a8a4",
+      "End": "e6d2633b59944111aed4e49bc54a5bc8",
+      "Id": "cced030b84964d109dd86b81adef3590"
+    },
+    {
+      "Start": "9e482938063c4fcbb615fbf31c2b4691",
+      "End": "85cdd0da3e134b5397dd0a1de2ccd0f7",
+      "Id": "54068ad8d1e5489b84ef3942eac86a48"
+    },
+    {
+      "Start": "cd0817ff5ba1421cbf6c86686cdcfdba",
+      "End": "a9d2df80660840f0b90a4b5e71127840",
+      "Id": "727063fb52814813b453ac7c2dfb5357"
+    },
+    {
+      "Start": "e5fa65d73f2f4220974ed42e04e6a595",
+      "End": "9bd79e2ce3624e79aaf8f0345ee71505",
+      "Id": "b961d8897fa5403fb19cdbdbfa6a8318"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.6.1.8786",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -28.83924674987793,
+      "EyeY": 79.09259033203125,
+      "EyeZ": -19.967742919921875,
+      "LookX": 0.00091962487204000354,
+      "LookY": -5.0539345741271973,
+      "LookZ": -0.10766903311014175,
+      "UpX": 0.0083015346899628639,
+      "UpY": 0.23514209687709808,
+      "UpZ": -0.97192555665969849
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "fec5a7b229264e4eba950eb9066cc9d5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 398.666666666666,
+        "Y": 0.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "a3ae4422bc974b35bffd96df5d35368c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 0.0,
+        "Y": 0.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Input",
+        "Id": "44777d05f6f54251876a510db02e36a7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 0.0,
+        "Y": 150.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Output",
+        "Id": "b4f1e6d3e8a24aed8daa8551855f1280",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 606.0,
+        "Y": 2.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List Create",
+        "Id": "db6be9113ec04128b3f43259bc427083",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 226.0,
+        "Y": 1.5
+      }
+    ],
+    "Annotations": [],
+    "X": 194.0,
+    "Y": 116.0,
+    "Zoom": 1.0
+  }
+}
