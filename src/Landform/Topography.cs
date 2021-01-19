@@ -24,7 +24,7 @@ namespace Landform
             var points = topography.Points;
             return points;
         }
-        public static void DeletePoints(Revit.Elements.Topography topography, List<Point> pointsToRemove)
+        public static Revit.Elements.Topography DeletePoints(Revit.Elements.Topography topography, List<Point> pointsToRemove)
         {
             //cast the Revit.Elements.Topograph to the Autodesk.Revit.DB.TopographySurface version
             var internalTopography = topography.InternalElement as TopographySurface;
@@ -54,6 +54,8 @@ namespace Landform
 
             //commit the edit
             editScope.Commit(new TopographyEditFailuresPreprocessorSimple());
+
+            return topography;
         }
 
         public static Revit.Elements.Topography AddPoints(Revit.Elements.Topography topography, List<Point> pointsToAdd)
@@ -90,7 +92,7 @@ namespace Landform
             return topography;
         }
 
-        public static void MovePoints(Revit.Elements.Topography topography, List<Point> pointsToMove, Vector vectorDelta)
+        public static Revit.Elements.Topography MovePoints(Revit.Elements.Topography topography, List<Point> pointsToMove, Vector vectorDelta)
         {
             //cast the Revit.Elements.Topograph to the Autodesk.Revit.DB.TopographySurface version
             var internalTopography = topography.InternalElement as TopographySurface;
@@ -117,6 +119,8 @@ namespace Landform
 
             //commit the edit
             editScope.Commit(new TopographyEditFailuresPreprocessorSimple());
+
+            return topography;
         }
     }
 
