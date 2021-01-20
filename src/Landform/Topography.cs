@@ -24,6 +24,12 @@ namespace Landform
             var points = topography.Points;
             return points;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="topography"></param>
+        /// <param name="pointsToRemove"></param>
+        /// <returns></returns>
         public static Revit.Elements.Topography DeletePoints(Revit.Elements.Topography topography, List<Point> pointsToRemove)
         {
             //cast the Revit.Elements.Topograph to the Autodesk.Revit.DB.TopographySurface version
