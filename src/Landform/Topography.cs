@@ -8,6 +8,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Analysis;
 using Autodesk.Revit.DB.Architecture;
 using Autodesk.Revit.UI;
+using Dynamo.Graph.Nodes;
 using Revit.GeometryConversion;
 using RevitServices.Transactions;
 using Point = Autodesk.DesignScript.Geometry.Point;
@@ -25,11 +26,12 @@ namespace Landform
             return points;
         }
         /// <summary>
-        /// 
+        /// Removes points from an existing toposurface. CAUTION: Only run in Manual Mode.
         /// </summary>
-        /// <param name="topography"></param>
-        /// <param name="pointsToRemove"></param>
-        /// <returns></returns>
+        /// <param name="topography">The toposurface.</param>
+        /// <param name="pointsToRemove">The points to remove.</param>
+        /// <returns name="topography">The toposurface.</returns>
+        [NodeCategory("Actions")]
         public static Revit.Elements.Topography DeletePoints(Revit.Elements.Topography topography, List<Point> pointsToRemove)
         {
             //cast the Revit.Elements.Topograph to the Autodesk.Revit.DB.TopographySurface version
@@ -64,7 +66,14 @@ namespace Landform
             return topography;
         }
 
-        public static void AddPoints(Revit.Elements.Topography topography, List<Point> pointsToAdd)
+        /// <summary>
+        /// Adds points to an existing toposurface. CAUTION: Only run in Manual mode.
+        /// </summary>
+        /// <param name="topography">The toposurface.</param>
+        /// <param name="pointsToAdd">The points to remove.</param>
+        /// <returns name="topography">The toposurface.</returns>
+        [NodeCategory("Actions")]
+        public static Revit.Elements.Topography AddPoints(Revit.Elements.Topography topography, List<Point> pointsToAdd)
         {
             //cast the Revit.Elements.Topograph to the Autodesk.Revit.DB.TopographySurface version
             var internalTopography = topography.InternalElement as TopographySurface;
@@ -94,6 +103,8 @@ namespace Landform
 
             //commit the edit
             editScope.Commit(new TopographyEditFailuresPreprocessorSimple());
+
+            return topography;
         }
 
         public static Revit.Elements.Topography MovePoints(Revit.Elements.Topography topography, List<Point> pointsToMove, Vector vectorDelta)
