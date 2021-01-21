@@ -27,15 +27,29 @@ namespace Landform
         /// Get the boundary points from a toposurface.
         /// </summary>
         /// <param name="topography">The toposurface.</param>
-        /// <returns name="points">The boundary points.</returns>
+        /// <returns name="boundaryPoints">The boundary points.</returns>
         [NodeCategory("Query")]
-        public static List<Point> GetPointsBoundary(Revit.Elements.Topography topography)
+        public static List<Point> GetBoundaryPoints(Revit.Elements.Topography topography)
+        {
+            //cast the Revit.Elements.Topography to the Autodesk.Revit.DB.TopographySurface version
+            var internalTopography = topography.InternalElement as TopographySurface;
+
+            //get the boundary points, convert to list and cast as Dynamo points
+            return internalTopography.GetBoundaryPoints().ToList().ToPoints();
+        }
+        /// <summary>
+        /// Get the interior points from a toposurface.
+        /// </summary>
+        /// <param name="topography">The toposurface.</param>
+        /// <returns name="interiorPoints">The interior points.</returns>
+        [NodeCategory("Query")]
+        public static List<Point> GetInteriorPoints(Revit.Elements.Topography topography)
         {
             //cast the Revit.Elements.Topography to the Autodesk.Revit.DB.TopographySurface version
             var internalTopography = topography.InternalElement as TopographySurface;
 
             //get the interior points, convert to list and cast as Dynamo points
-            return internalTopography.GetBoundaryPoints().ToList().ToPoints();
+            return internalTopography.GetInteriorPoints().ToList().ToPoints();
         }
         /// <summary>
         /// Removes points from an existing toposurface. CAUTION: Must be run in Manual Mode.
