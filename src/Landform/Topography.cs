@@ -15,18 +15,30 @@ using Point = Autodesk.DesignScript.Geometry.Point;
 
 namespace Landform
 {
+    /// <summary>
+    /// Wrapper Class for Topography
+    /// </summary>
     public class Topography
     {
         private Topography()
         {
         }
-        public static List<Point> GetPoints(Revit.Elements.Topography topography)
+        /// <summary>
+        /// Get the boundary points from a toposurface.
+        /// </summary>
+        /// <param name="topography">The toposurface.</param>
+        /// <returns name="points">The boundary points.</returns>
+        [NodeCategory("Query")]
+        public static List<Point> GetPointsBoundary(Revit.Elements.Topography topography)
         {
-            var points = topography.Points;
-            return points;
+            //cast the Revit.Elements.Topography to the Autodesk.Revit.DB.TopographySurface version
+            var internalTopography = topography.InternalElement as TopographySurface;
+
+            //get the interior points, convert to list and cast as Dynamo points
+            return internalTopography.GetBoundaryPoints().ToList().ToPoints();
         }
         /// <summary>
-        /// Removes points from an existing toposurface. CAUTION: Only run in Manual Mode.
+        /// Removes points from an existing toposurface. CAUTION: Must be run in Manual Mode.
         /// </summary>
         /// <param name="topography">The toposurface.</param>
         /// <param name="pointsToRemove">The points to remove.</param>
@@ -67,7 +79,7 @@ namespace Landform
         }
 
         /// <summary>
-        /// Adds points to an existing toposurface. CAUTION: Only run in Manual mode.
+        /// Adds points to an existing toposurface. CAUTION: Must be run in Manual Mode.
         /// </summary>
         /// <param name="topography">The toposurface.</param>
         /// <param name="pointsToAdd">The points to remove.</param>
@@ -107,6 +119,13 @@ namespace Landform
             return topography;
         }
 
+        /// <summary>
+        /// Moves points within an existing toposurface. The shift delta will be the specified X,Y, and Z values within the vector. CAUTION: Must be run in Manual Mode.
+        /// </summary>
+        /// <param name="topography">The toposurface.</param>
+        /// <param name="pointsToMove">The points to shift.</param>
+        /// <param name="vectorDelta">The vector to shift the points.</param>
+        /// <returns name="topography">The toposurface.</returns>
         public static Revit.Elements.Topography MovePoints(Revit.Elements.Topography topography, List<Point> pointsToMove, Vector vectorDelta)
         {
             //cast the Revit.Elements.Topograph to the Autodesk.Revit.DB.TopographySurface version
