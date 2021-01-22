@@ -20,12 +20,13 @@ namespace Landform
         {
         }
 
-        public static void ChangeHost(Element railing, Element host)
+        public static void ChangeHost(Revit.Elements.Element railing, Revit.Elements.Element host)
         {
-            var id = host.Id;
-            var doc = railing.Document;
+            var id = host.InternalElement.Id;
 
-            var internalRailing = railing as Autodesk.Revit.DB.Architecture.Railing;
+            var internalRailing = railing.InternalElement as Autodesk.Revit.DB.Architecture.Railing;
+
+            var doc = internalRailing.Document;
 
             Transaction trans = new Transaction(doc);
             trans.Start("Change Host");
