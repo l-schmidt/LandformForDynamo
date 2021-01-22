@@ -14,6 +14,9 @@ using RevitServices.Transactions;
 
 namespace Landform
 {
+    /// <summary>
+    /// Wrapper Class for Railing
+    /// </summary>
     public class Railing
     {
         private Railing()
@@ -24,7 +27,7 @@ namespace Landform
         /// Set or change the host for a railing.
         /// </summary>
         /// <param name="railing">The railing(s)</param>
-        /// <param name="hostElement">The host(s)</param>
+        /// <param name="host">The host(s)</param>
         /// <returns name="result">The result</returns>
         public static string SetHost(Revit.Elements.Element railing, Revit.Elements.Element host)
         {
