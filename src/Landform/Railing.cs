@@ -20,7 +20,7 @@ namespace Landform
         {
         }
 
-        public static void ChangeHost(Revit.Elements.Element railing, Revit.Elements.Element host)
+        public static string ChangeHost(Revit.Elements.Element railing, Revit.Elements.Element host)
         {
             var id = host.InternalElement.Id;
 
@@ -28,12 +28,23 @@ namespace Landform
 
             var doc = internalRailing.Document;
 
-            Transaction trans = new Transaction(doc);
-            trans.Start("Change Host");
+            string result;
 
-            internalRailing.HostId = id;
+            try
+            {
+                TransactionManager.Instance.EnsureInTransaction((doc));
 
-            trans.Commit();
+                internalRailing.HostId = id;
+
+                TransactionManager.Instance.TransactionTaskDone();
+                result = "Success.";
+            }
+            catch (Exception)
+            {
+                result = "Failed.";
+            }
+
+            return result;
 
         }
     }
