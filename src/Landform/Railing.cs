@@ -20,7 +20,13 @@ namespace Landform
         {
         }
 
-        public static string ChangeHost(Revit.Elements.Element railing, Revit.Elements.Element host)
+        /// <summary>
+        /// Set or change the host for a railing.
+        /// </summary>
+        /// <param name="railing">The railing(s)</param>
+        /// <param name="hostElement">The host(s)</param>
+        /// <returns name="result">The result</returns>
+        public static string SetHost(Revit.Elements.Element railing, Revit.Elements.Element host)
         {
             var id = host.InternalElement.Id;
 
@@ -37,11 +43,11 @@ namespace Landform
                 internalRailing.HostId = id;
 
                 TransactionManager.Instance.TransactionTaskDone();
-                result = "Success.";
+                result = "Success";
             }
             catch (Exception)
             {
-                result = "Failed.";
+                result = "Transaction Failed";
             }
 
             return result;
