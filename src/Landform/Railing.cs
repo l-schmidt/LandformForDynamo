@@ -16,13 +16,23 @@ namespace Landform
 {
     public class Railing
     {
-        private Railing();
+        private Railing()
         {
         }
 
         public static void ChangeHost(Element railing, Element host)
         {
-            var id = railing.Id;
+            var id = host.Id;
+            var doc = railing.Document;
+
+            var internalRailing = railing as Autodesk.Revit.DB.Architecture.Railing;
+
+            Transaction trans = new Transaction(doc);
+            trans.Start("Change Host");
+
+            internalRailing.HostId = id;
+
+            trans.Commit();
 
         }
     }
