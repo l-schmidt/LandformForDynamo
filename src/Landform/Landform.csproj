@@ -135,6 +135,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Railing.cs" />
     <Compile Include="Topography.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
