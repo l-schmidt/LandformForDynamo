@@ -24,6 +24,16 @@ namespace Landform
         {
         }
         /// <summary>
+        /// Check if list of points are distinct in XY location.
+        /// </summary>
+        /// <param name="pointsToCheck">List of points.</param>
+        /// <returns></returns>
+        public static bool DistinctXY(List<Point> pointsToCheck)
+        {
+            return TopographySurface.ArePointsDistinct(pointsToCheck.ToXyzs());
+        }
+        
+        /// <summary>
         /// Get the boundary points from a toposurface.
         /// </summary>
         /// <param name="topography">The toposurface.</param>
