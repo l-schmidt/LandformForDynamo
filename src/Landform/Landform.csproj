@@ -135,12 +135,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Railing.cs" />
-    <Compile Include="Topography.cs" />
+    <Compile Include="Revit\Elements\Railing.cs" />
+    <Compile Include="Revit\Elements\Topography.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(ProjectDir)bin\Debug\Landform.dll" "C:\Users\LaurenSchmidt\AppData\Roaming\Dynamo\Dynamo Revit\2.6\packages\Landform\bin" /Y /I
+xcopy "$(ProjectDir)bin\Debug\Landform.xml" "C:\Users\LaurenSchmidt\AppData\Roaming\Dynamo\Dynamo Revit\2.6\packages\Landform\bin" /Y /I</PostBuildEvent>
+  </PropertyGroup>
 </Project>

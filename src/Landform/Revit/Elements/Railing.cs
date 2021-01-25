@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autodesk.DesignScript.Geometry;
-using Autodesk.Revit.DB;
-using Autodesk.Revit.DB.Analysis;
-using Autodesk.Revit.DB.Architecture;
-using Autodesk.Revit.UI;
 using Dynamo.Graph.Nodes;
-using Revit.GeometryConversion;
 using RevitServices.Transactions;
 
-namespace Landform
+namespace Landform.Revit.Elements
 {
     /// <summary>
     /// Wrapper Class for Railing
@@ -30,7 +20,7 @@ namespace Landform
         /// <param name="host">The host(s)</param>
         /// <returns name="result">The result</returns>
         [NodeCategory("Actions")]
-        public static string SetHost(Revit.Elements.Element railing, Revit.Elements.Element host)
+        public static string SetHost(global::Revit.Elements.Element railing, global::Revit.Elements.Element host)
         {
             var id = host.InternalElement.Id;
 

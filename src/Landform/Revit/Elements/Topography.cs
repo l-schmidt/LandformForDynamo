@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Autodesk.DesignScript.Geometry;
 using Autodesk.Revit.DB;
-using Autodesk.Revit.DB.Analysis;
 using Autodesk.Revit.DB.Architecture;
 using Autodesk.Revit.UI;
 using Dynamo.Graph.Nodes;
@@ -13,7 +10,7 @@ using Revit.GeometryConversion;
 using RevitServices.Transactions;
 using Point = Autodesk.DesignScript.Geometry.Point;
 
-namespace Landform
+namespace Landform.Revit.Elements
 {
     /// <summary>
     /// Wrapper Class for Topography
@@ -40,7 +37,7 @@ namespace Landform
         /// <param name="topography">The toposurface.</param>
         /// <returns name="boundaryPoints">The boundary points.</returns>
         [NodeCategory("Query")]
-        public static List<Point> GetBoundaryPoints(Revit.Elements.Topography topography)
+        public static List<Point> GetBoundaryPoints(global::Revit.Elements.Topography topography)
         {
             //cast the Revit.Elements.Topography to the Autodesk.Revit.DB.TopographySurface version
             var internalTopography = topography.InternalElement as TopographySurface;
@@ -54,7 +51,7 @@ namespace Landform
         /// <param name="topography">The toposurface.</param>
         /// <returns name="interiorPoints">The interior points.</returns>
         [NodeCategory("Query")]
-        public static List<Point> GetInteriorPoints(Revit.Elements.Topography topography)
+        public static List<Point> GetInteriorPoints(global::Revit.Elements.Topography topography)
         {
             //cast the Revit.Elements.Topography to the Autodesk.Revit.DB.TopographySurface version
             var internalTopography = topography.InternalElement as TopographySurface;
@@ -69,7 +66,7 @@ namespace Landform
         /// <param name="pointsToRemove">The points to remove.</param>
         /// <returns name="topography">The toposurface.</returns>
         [NodeCategory("Actions")]
-        public static Revit.Elements.Topography DeletePoints(Revit.Elements.Topography topography, List<Point> pointsToRemove)
+        public static global::Revit.Elements.Topography DeletePoints(global::Revit.Elements.Topography topography, List<Point> pointsToRemove)
         {
             //cast the Revit.Elements.Topograph to the Autodesk.Revit.DB.TopographySurface version
             var internalTopography = topography.InternalElement as TopographySurface;
@@ -110,7 +107,7 @@ namespace Landform
         /// <param name="pointsToAdd">The points to remove.</param>
         /// <returns name="topography">The toposurface.</returns>
         [NodeCategory("Actions")]
-        public static Revit.Elements.Topography AddPoints(Revit.Elements.Topography topography, List<Point> pointsToAdd)
+        public static global::Revit.Elements.Topography AddPoints(global::Revit.Elements.Topography topography, List<Point> pointsToAdd)
         {
             //cast the Revit.Elements.Topograph to the Autodesk.Revit.DB.TopographySurface version
             var internalTopography = topography.InternalElement as TopographySurface;
@@ -151,7 +148,7 @@ namespace Landform
         /// <param name="pointsToMove">The points to shift.</param>
         /// <param name="vectorDelta">The vector to shift the points.</param>
         /// <returns name="topography">The toposurface.</returns>
-        public static Revit.Elements.Topography MovePoints(Revit.Elements.Topography topography, List<Point> pointsToMove, Vector vectorDelta)
+        public static global::Revit.Elements.Topography MovePoints(global::Revit.Elements.Topography topography, List<Point> pointsToMove, Vector vectorDelta)
         {
             //cast the Revit.Elements.Topograph to the Autodesk.Revit.DB.TopographySurface version
             var internalTopography = topography.InternalElement as TopographySurface;
