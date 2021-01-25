@@ -28,6 +28,7 @@ namespace Landform
         /// </summary>
         /// <param name="pointsToCheck">List of points.</param>
         /// <returns></returns>
+        [NodeCategory("Query")]
         public static bool DistinctXY(List<Point> pointsToCheck)
         {
             return TopographySurface.ArePointsDistinct(pointsToCheck.ToXyzs());

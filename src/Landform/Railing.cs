@@ -29,6 +29,7 @@ namespace Landform
         /// <param name="railing">The railing(s)</param>
         /// <param name="host">The host(s)</param>
         /// <returns name="result">The result</returns>
+        [NodeCategory("Actions")]
         public static string SetHost(Revit.Elements.Element railing, Revit.Elements.Element host)
         {
             var id = host.InternalElement.Id;
