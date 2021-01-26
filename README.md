@@ -3,6 +3,17 @@ A collection of Dynamo nodes to assist with site and landscape modeling in Revit
 
 ### Change Log
 ------
+### 2021.01.25
+- Changes:
+  - Points.SameXY, fixed issue with X values, updated to include indicies of points
+- New Nodes:
+  - Railing.SetHost
+  - Topography.AddPoints
+  - Topography.DeletePoints
+  - Topography.MovePoints
+  - Topography.DistinctXY
+  - Topography.GetBoundaryPoints
+  - Topography.GetInteriorPoints
 ### 2020.11.18
 - Changes:
   - Migration to 2.x
